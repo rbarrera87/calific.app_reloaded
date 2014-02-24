@@ -5,7 +5,7 @@ gem 'rails', '4.0.0'
 
 #HAML http://rubygems.org/gems/haml
 gem "haml", "4.0.4"
-gem "haml-rails"
+
 
 #Mysql2
 gem "mysql2", "0.3.14"
@@ -15,6 +15,10 @@ gem "devise"
 
 #bootstrap
 gem "twitter-bootstrap-rails", "2.2.8"
+gem "haml-rails"
+gem "less-rails"
+gem 'therubyracer'
+
 
 #Awesome print
 gem "awesome_print", "1.2.0"
@@ -37,8 +41,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
