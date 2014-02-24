@@ -64,6 +64,11 @@ GEM
       i18n (~> 0.5)
     haml (4.0.4)
       tilt
+    haml-rails (0.5.1)
+      actionpack (~> 4.0.0)
+      activesupport (~> 4.0.0)
+      haml (>= 3.1, < 5.0)
+      railties (~> 4.0.0)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -165,6 +170,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.3.0)
   faker (= 1.2.0)
   haml (= 4.0.4)
+  haml-rails
   jbuilder (~> 1.2)
   jquery-rails
   mysql2 (= 0.3.14)

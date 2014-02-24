@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 #HAML http://rubygems.org/gems/haml
 gem "haml", "4.0.4"
+gem "haml-rails"
 
 #Mysql2
 gem "mysql2", "0.3.14"
