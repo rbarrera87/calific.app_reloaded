@@ -11,11 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224172451) do
+ActiveRecord::Schema.define(version: 20140224223411) do
 
   create_table "materias", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "perfils", force: true do |t|
+    t.string   "nombre"
+    t.string   "apellido_paterno"
+    t.string   "apellido_materno"
+    t.string   "numero_control"
+    t.date     "fecha_nacimiento"
+    t.string   "estado_civil"
+    t.string   "sexo"
+    t.integer  "cp"
+    t.string   "curp"
+    t.string   "nss"
+    t.string   "rfc"
+    t.integer  "telefono"
+    t.integer  "celular"
+    t.string   "calle"
+    t.string   "numero_exterior"
+    t.string   "numero_interior"
+    t.string   "numero_departamento"
+    t.string   "referencias"
+    t.text     "comentarios"
+    t.string   "poblacion"
+    t.string   "estado"
+    t.string   "situacion"
+    t.string   "turno"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
