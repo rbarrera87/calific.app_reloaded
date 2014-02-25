@@ -17,5 +17,8 @@
 /tmp
 .rvmrc
 config/database.yml
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
