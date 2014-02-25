@@ -1,5 +1,12 @@
 CalificaMe::Application.routes.draw do
  
+  get "grupos/index"
+  get "grupos/show"
+  get "grupos/new"
+  get "grupos/edit"
+  get "grupos/create"
+  get "grupos/update"
+  get "grupos/destroy"
   devise_for :users
   resources :materias
   # The priority is based upon order of creation: first created -> highest priority.
