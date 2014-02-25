@@ -11,13 +11,13 @@ gem "haml", "4.0.4"
 gem "mysql2", "0.3.14"
 
 #Devise
-gem "devise"
+gem "devise", "~> 3.2.3"
 
 #bootstrap
 gem "twitter-bootstrap-rails", "2.2.8"
 gem "haml-rails"
-gem "less-rails"
-gem 'therubyracer'
+gem "less-rails", "~> 2.4.2"
+gem "therubyracer", "~> 0.12.1"
 
 
 #Awesome print
@@ -30,7 +30,7 @@ gem "cancan", "1.6.10"
 gem "simple_form", "3.0.1"
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem "sqlite3", "~> 1.3.8"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,7 +43,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem "jquery-rails", "~> 3.1.0"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
@@ -63,7 +63,7 @@ end
 group :development, :integration, :test do
 	gem "factory_girl_rails", "4.3.0"
 	gem "rspec-rails", "2.14.0"
-	gem "debugger"
+    gem "debugger", "~> 1.6.5"
 	#gem "haml-rails", "0.5.2"
 end
 
@@ -73,7 +73,7 @@ group :test do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
