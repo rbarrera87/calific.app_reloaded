@@ -6,9 +6,52 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+	<body>
+		<div class="container">
+			<div class="row" id="encabezado">
+				<nav class="nav nav-tabs" role="navigation">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#">Inicio</a>
+						</li>
+						<li>
+							<a href="#">Materias</a>
+						</li>
+						<li class="disabled">
+							<a href="#">Otros</a>
+						</li>
+						<li class="dropdown pull-right">
+							 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Opciones<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Ver perfil</a>
+								</li>
+								<li>
+									<a href="#">Cambiar contraseña</a>
+								</li>
+								<li>
+									<%= link_to 'Cerrar sesión', destroy_user_session_path(), method: :delete %>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="row">
+				<div class="span9">
+					<%= yield %>
+				</div>
+				<div class="span3">
+					<% if user_signed_in?%>
+						<h4>Bienvenido</h4> <%= current_user.email %>
+						<p> <%= link_to('Edit registration', edit_user_registration_path) %></p>
+					<% else %>
 
-<%= yield %>
-
-</body>
+						<p><%= link_to 'Solicita una cuenta', new_user_registration_path %></p>
+						<p>Si ya tienes una cuenta: <%= link_to 'Logueate', new_user_session_path %></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

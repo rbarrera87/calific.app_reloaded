@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title CalificaMe
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .container
+      #encabezado.row
+        %nav.nav.nav-tabs{role: "navigation"}
+          %ul.nav.nav-tabs
+            %li.active
+              %a{href: "#"} Bienvenido a Calific.App
+      .row
+        .span9
+          = yield
+        .span3
+          - if user_signed_in?
+            %h4 Bienvenido
+            = current_user.email
+            = link_to 'Cerrar sesión', destroy_user_session_path(), method: :delete
+          - else
+            %p= link_to 'Solicita una cuenta', new_user_registration_path
+            %h4 Si ya tienes cuenta
+            %p= link_to 'Logueate', new_user_session_path
+
