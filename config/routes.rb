@@ -1,11 +1,21 @@
 CalificaMe::Application.routes.draw do
   
 
+  # get "asignaturas/index"
+  # get "asignaturas/show"
+  # get "asignaturas/new"
+  # get "asignaturas/edit"
+  # get "asignaturas/update"
+  # get "asignaturas/create"
+
   devise_for :users
   resources :materias
   resources :perfiles
-  get '/materia/new', to: 'materias#new'
-  get '/materia', to: 'materias#index', as: 'materia_index'
+  resources :asignaturas
+  
+  # get '/materia/new', to: 'materias#new'
+  # get '/materia', to: 'materias#index', as: 'materia_index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
