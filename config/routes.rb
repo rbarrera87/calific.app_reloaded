@@ -1,11 +1,12 @@
 CalificaMe::Application.routes.draw do
   
   devise_for :users
-  resources :materias
+  resources :asignaturas
   resources :perfiles
   resources :grados
   resources :grupos
   resources :carreras
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -27,7 +27,7 @@ gem "awesome_print", "1.2.0"
 gem "cancan", "1.6.10"
 
 #Simple form
-gem "simple_form", "3.0.1"
+gem "simple_form", "~> 3.0.1"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.3.8"

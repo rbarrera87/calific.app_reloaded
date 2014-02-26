@@ -20,8 +20,6 @@
         .span9
           = yield
         .span3
-          %p.notice= notice
-          %p.alert= alert
           - if user_signed_in?
             %h4 Bienvenido
             = current_user.email
