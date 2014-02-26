@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+
+  create_table "grados", force: true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 ActiveRecord::Schema.define(version: 20140226025904) do
+
 
   create_table "grupos", force: true do |t|
     t.string   "nombre"
