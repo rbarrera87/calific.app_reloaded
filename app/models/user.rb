@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :subjects, through: :user_subjects
-  has_many :user_subjects
+  has_many :materias, through: :user_materias
+  has_many :user_materias
 
   #attr_accessible :roles
 

@@ -6,22 +6,28 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    .container
-      #encabezado.row
-        %nav.nav.nav-tabs{role: "navigation"}
-          %ul.nav.nav-tabs
-            %li.active
-              %a{href: "#"} Bienvenido a Calific.App
+    .container-fluid
+      #encabezado.row-fluid
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container
+              %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.brand Calific.App
       .row
         .span9
           = yield
         .span3
+          %p.notice= notice
+          %p.alert= alert
           - if user_signed_in?
             %h4 Bienvenido
             = current_user.email
-            = link_to 'Cerrar sesión', destroy_user_session_path(), method: :delete
+            %p
+              = link_to('Edit registration', edit_user_registration_path)
           - else
             %p= link_to 'Solicita una cuenta', new_user_registration_path
-            %h4 Si ya tienes cuenta
-            %p= link_to 'Logueate', new_user_session_path
-
+            %p
+              Si ya tienes una cuenta: #{link_to 'Logueate', new_user_session_path}
