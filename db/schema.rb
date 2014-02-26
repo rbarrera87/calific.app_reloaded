@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20140226022123) do
 
-ActiveRecord::Schema.define(version: 20140225232321) do
-
+  create_table "grados", force: true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "grupos", force: true do |t|
     t.string   "nombre"
@@ -29,9 +34,7 @@ ActiveRecord::Schema.define(version: 20140225232321) do
     t.datetime "updated_at"
   end
 
-
   create_table "perfiles", force: true do |t|
-
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"

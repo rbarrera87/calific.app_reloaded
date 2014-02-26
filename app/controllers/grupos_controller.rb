@@ -27,7 +27,6 @@ class GruposController < ApplicationController
       end
     end
   end
-  end
 
   def update
      respond_to do |format|
@@ -53,8 +52,7 @@ class GruposController < ApplicationController
     def set_grupo
       @grupo = Grupo.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+# Never trust parameters from the scary internet, only allow the white list through.
     def grupo_params
       params.require(:grupo).permit(:nombre, :descripcion)
     end
