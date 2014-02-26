@@ -11,9 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20140225232321) do
 
-ActiveRecord::Schema.define(version: 20140224185819) do
-
+  create_table "grupos", force: true do |t|
+    t.string   "nombre"
+    t.string   "descrpcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "materias", force: true do |t|
     t.string   "nombre"
@@ -22,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140224185819) do
     t.datetime "updated_at"
   end
 
-  create_table "perfils", force: true do |t|
+  create_table "perfiles", force: true do |t|
     t.string   "nombre"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"

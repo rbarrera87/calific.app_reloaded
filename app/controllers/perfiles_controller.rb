@@ -1,8 +1,8 @@
 class PerfilesController < ApplicationController
-   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+   before_action :set_perfil, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   def index
-    @perfil = current_user.profile 
+    @perfil = current_user.perfil
   end
 
   def show
@@ -42,7 +42,7 @@ class PerfilesController < ApplicationController
   end
    private
     # Use callbacks to share common setup or constraints between actions.
-    def set_materia
+    def set_perfil
       @perfil = Perfil.find(params[:id])
     end
 
