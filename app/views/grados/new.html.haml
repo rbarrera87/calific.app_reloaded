@@ -1,2 +1,4 @@
-%h1 Grados#new
-%p Find me in app/views/grados/new.html.haml
+- model_class = Grado
+.page-header
+  %h1 Registrando Grado
+= render :partial => "form"
