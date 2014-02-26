@@ -1,6 +1,8 @@
 class MateriasController < ApplicationController
-   before_action :set_materia, only: [:show, :edit, :update, :destroy]
-   before_filter :authenticate_user!
+  before_action :set_materia, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  layout 'application'
+  
   def index
     @materias = Materia.all
   end
