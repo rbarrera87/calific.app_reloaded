@@ -1,2 +1,21 @@
-%h1 Grupos#index
-%p Find me in app/views/grupos/index.html.haml
+- model_class = Grupo
+.page-header
+  %h1 Lista de Grupos
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:Clave)
+      %th= model_class.human_attribute_name(:Nombre)
+      %th= model_class.human_attribute_name(:Descripción)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @grupos.each do |grupo|
+      %tr
+        %td= link_to grupo.id, grupo_path(grupo)
+        %td= grupo.nombre
+        %td= grupo.descripcion
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_grupo_path(grupo), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), grupo_path(grupo), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_grupo_path, :class => 'btn btn-primary'

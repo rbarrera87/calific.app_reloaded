@@ -46,8 +46,8 @@ class GradosController < ApplicationController
   def destroy
     @grado.destroy
     respond_to do |format|
-      format.html {redirect_to grados_url}
-      format.json {head :no_content}
+      format.html { redirect_to grados_url }
+      format.json { head :no_content }
     end
   end
 
