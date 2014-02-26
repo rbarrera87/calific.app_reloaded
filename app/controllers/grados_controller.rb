@@ -56,4 +56,4 @@ private
     def grado_params
       params.require(:grado).permit(:nombre, :descripcion)
     end
-en
+end
