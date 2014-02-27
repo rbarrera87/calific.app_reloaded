@@ -15,17 +15,16 @@
                 %span.icon-bar
                 %span.icon-bar
                 %span.icon-bar
-              %a.brand Calific.App
+              %a.brand Bienvenido a Calific.App
       .row
         .span9
-          = yield
+          %h4 
+            Contenido
         .span3
-          - if user_signed_in?
-            %h4 Bienvenido
-            = current_user.email
+          .jumbotron
+            %h3
+              Inicia Sesión
+            %p{style: "text-align: justify;"}
+              Para acceder a todos los beneficios que Calific.App te brinda, debes de iniciar sesion con el usuario y la contraseña que te otorgaron al momento de registrarte, si aún no tienes una cuenta, solicitala con en Servicios Escolares.
             %p
-              = link_to('Edit registration', edit_user_registration_path)
-          - else
-            %p= link_to 'Solicita una cuenta', new_user_registration_path
-            %p
-              Si ya tienes una cuenta: #{link_to 'Logueate', new_user_session_path}
+              %a.button.btn.btn-sm.btn-primary{type: "button", href: "users/sign_in"} Iniciar Sesión
