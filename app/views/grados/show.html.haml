@@ -1,6 +1,6 @@
 - model_class = Grado
 .page-header
-  %h1 Datos del grado
+  %h3.text-primary.text-center=t '.title', :default => model_class.model_name.human.titleize
 
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
