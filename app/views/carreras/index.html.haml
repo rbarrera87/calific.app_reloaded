@@ -1,2 +1,22 @@
-%h1 Carreras#index
-%p Find me in app/views/carreras/index.html.haml
+- model_class = Carrera
+.page-header
+%h3.text-primary.text-center
+  Lista de carreras
+%table.table.table-bordered.table-hover.table-condensed
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:Clave)
+      %th= model_class.human_attribute_name(:Nombre)
+      %th= model_class.human_attribute_name(:Descripción)
+      %th=t '.actions', :default => t("helpers.Acciones")
+  %tbody
+    - @carreras.each do |carrera|
+      %tr
+        %td= link_to carrera.id, carrera_path(carrera)
+        %td= carrera.nombre
+        %td= carrera.descripcion
+        %td
+          = link_to t('.edit', :default => t("helpers.links.Editar")), edit_carrera_path(carrera), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.Eliminar")), carrera_path(carrera), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.Agregar")), new_carrera_path, :class => 'btn btn-primary'

@@ -1,2 +1,5 @@
-%h1 Grupos#new
-%p Find me in app/views/grupos/new.html.haml
+- model_class = Grupo
+.page-header
+  %h3.text-primary.text-center
+  	Registrando Grupo
+= render :partial => "form"
