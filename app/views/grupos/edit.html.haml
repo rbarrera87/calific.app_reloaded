@@ -1,2 +1,5 @@
-%h1 Grupos#edit
-%p Find me in app/views/grupos/edit.html.haml
+- model_class = Grupo
+.page-header
+  %h3.text-primary.text-center
+  	Editando Grupo
+= render :partial => "form"

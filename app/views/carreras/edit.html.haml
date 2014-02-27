@@ -1,2 +1,5 @@
-%h1 Carreras#edit
-%p Find me in app/views/carreras/edit.html.haml
+- model_class = Carrera
+.page-header
+%h3.text-primary.text-center
+	Editando carrera
+= render :partial => "form"

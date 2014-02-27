@@ -1,8 +1,8 @@
 class Perfil < ActiveRecord::Base
 	self.table_name = "perfiles"
 	belongs_to :user
-	has_one :carrera
-	has_one :grupo
+	belongs_to :carrera
+	belongs_to :grupo
 
 	 
  validates :fotografia_url, :numero_control, :fecha_nacimiento, :estado_civil, :sexo,

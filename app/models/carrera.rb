@@ -1,5 +1,5 @@
 class Carrera < ActiveRecord::Base
 		self.table_name = "carreras"
-		belongs_to :perfil
+		has_many :perfiles
 	validates_presence_of :nombre
 end

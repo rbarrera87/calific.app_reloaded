@@ -1,2 +1,23 @@
-%h1 Grados#index
-%p Find me in app/views/grados/index.html.haml
+- model_class = Grado
+.page-header
+%h3.text-primary.text-center
+  Lista de grados
+%table.table.table-bordered.table-hover.table-condensed
+  %thead
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:Clave)
+      %th= model_class.human_attribute_name(:Nombre)
+      %th= model_class.human_attribute_name(:Descripción)
+      %th=t '.actions', :default => t("helpers.Acciones")
+  %tbody
+    - @grados.each do |grado|
+      %tr
+        %td= link_to grado.id, grado_path(grado)
+        %td= grado.nombre
+        %td= grado.descripcion
+        %td
+          = link_to t('.edit', :default => t("helpers.links.Editar")), edit_grado_path(grado), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.Eliminar")), grado_path(grado), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.Confirmar", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.Agregar")), new_grado_path, :class => 'btn btn-primary'
