@@ -1,7 +1,8 @@
 - model_class = Asignatura
 .page-header
-  %h1 Lista de Asignaturas
-%table.table.table-striped
+%h3.text-primary.text-center
+  =t '.title', :default => [:'helpers.titles.index', 'index %{model}'], :model => model_class.model_name.human.pluralize
+%table.table.table-bordered.table-hover.table-condensed
   %thead
     %tr
       %th= model_class.human_attribute_name(:clave)

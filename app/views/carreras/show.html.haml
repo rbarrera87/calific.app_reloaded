@@ -1,7 +1,7 @@
 - model_class = Carrera
 .page-header
   %h3.text-primary.text-center
-    Datos de la carrera
+    =t '.title', :default => [:'helpers.titles.show', 'show %{model}'], :model => model_class.model_name.human.titleize
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
   %br
