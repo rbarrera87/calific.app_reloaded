@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227191755) do
+ActiveRecord::Schema.define(version: 20140228022024) do
+
+  create_table "adeudos", force: true do |t|
+    t.integer  "numero_libros"
+    t.decimal  "multa",         precision: 10, scale: 0
+    t.decimal  "total",         precision: 10, scale: 0
+    t.string   "concepto"
+    t.integer  "perfil_id",                              null: false
+    t.integer  "libro_id",                               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adeudos", ["perfil_id", "libro_id"], name: "index_adeudos_on_perfil_id_and_libro_id", unique: true, using: :btree
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -67,10 +80,10 @@ ActiveRecord::Schema.define(version: 20140227191755) do
     t.string   "turno"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",             null: false
-    t.integer  "grupo_id",            null: false
-    t.integer  "carrera_id",          null: false
-    t.boolean  "tsu_ingenieria"
+    t.integer  "user_id",                             null: false
+    t.integer  "grupo_id",                            null: false
+    t.integer  "carrera_id",                          null: false
+    t.boolean  "tsu_ingenieria",      default: false
   end
 
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
