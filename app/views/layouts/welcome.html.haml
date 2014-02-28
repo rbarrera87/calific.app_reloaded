@@ -15,16 +15,28 @@
                 %span.icon-bar
                 %span.icon-bar
                 %span.icon-bar
-              %a.brand Bienvenido a Calific.App
+              %a.brand Calific.App
+              .nav-collapse
+                %ul.nav
+                  %a.button.btn.btn-sm.btn-primary{type: "button", href: "dashboard/"} Dashboard
+
+                %li.dropdown.pull-right
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    Opciones
+                    %strong.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: "#"} Ver perfil
+                    %li
+                      = link_to 'Cerrar sesión', destroy_user_session_path(), method: :delete
       .row
         .span9
           %h4 
-            Contenido
+            = yield
         .span3
-          .jumbotron
-            %h3
-              Inicia Sesión
-            %p{style: "text-align: justify;"}
-              Para acceder a todos los beneficios que Calific.App te brinda, debes de iniciar sesion con el usuario y la contraseña que te otorgaron al momento de registrarte, si aún no tienes una cuenta, solicitala con en Servicios Escolares.
-            %p
-              %a.button.btn.btn-sm.btn-primary{type: "button", href: "users/sign_in"} Iniciar Sesión
+          - user_signed_in?
+          %h4 Bienvenido
+          = current_user.email
+          %p
+          = link_to('Editar registro', edit_user_registration_path)
+    
