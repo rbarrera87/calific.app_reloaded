@@ -22,6 +22,7 @@
 en:
   helpers:
     actions: "Actions"
+
     links:
       back: "Back"
       cancel: "Cancel"
@@ -29,6 +30,7 @@ en:
       destroy: "Delete"
       new: "New"
       edit: "Edit"
+
     titles:
       edit: "Edit %{model}"
       save: "Save %{model}"
