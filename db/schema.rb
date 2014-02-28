@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228183908) do
+ActiveRecord::Schema.define(version: 20140228190849) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20140228183908) do
   create_table "grupos", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "libros", force: true do |t|
+    t.string   "nombre_libro"
+    t.string   "editorial"
+    t.string   "autor"
+    t.string   "categoria"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,15 +92,6 @@ ActiveRecord::Schema.define(version: 20140228183908) do
   end
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
-
-  create_table "table_libros", force: true do |t|
-    t.string   "nombre_libro"
-    t.string   "editorial"
-    t.string   "autor"
-    t.string   "categoria"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"
