@@ -1,7 +1,7 @@
 - model_class = Grado
 .page-header
 %h3.text-primary.text-center
-  Lista de grados
+  =t '.title', :default => [:'helpers.titles.index', 'Index %{model}'], :model => model_class.model_name.human.pluralize
 %table.table.table-bordered.table-hover.table-condensed
   %thead
   %thead
@@ -9,7 +9,7 @@
       %th= model_class.human_attribute_name(:Clave)
       %th= model_class.human_attribute_name(:Nombre)
       %th= model_class.human_attribute_name(:Descripción)
-      %th=t '.actions', :default => t("helpers.Acciones")
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @grados.each do |grado|
       %tr
@@ -17,7 +17,7 @@
         %td= grado.nombre
         %td= grado.descripcion
         %td
-          = link_to t('.edit', :default => t("helpers.links.Editar")), edit_grado_path(grado), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.Eliminar")), grado_path(grado), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.Confirmar", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_grado_path(grado), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), grado_path(grado), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.Confirmar", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.Agregar")), new_grado_path, :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), new_grado_path, :class => 'btn btn-primary'
