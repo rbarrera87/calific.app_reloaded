@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Numero libros:
+  = @adeudo.numero_libros
+%p
+  %b Multa:
+  = @adeudo.multa
+%p
+  %b Total:
+  = @adeudo.total
+%p
+  %b Concepto:
+  = @adeudo.concepto
+%p
+  %b Perfil:
+  = @adeudo.perfil_id
+%p
+  %b Libro:
+  = @adeudo.libro_id
+
+= link_to 'Edit', edit_adeudo_path(@adeudo)
+\|
+= link_to 'Back', adeudos_path

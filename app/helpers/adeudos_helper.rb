@@ -1,0 +1,2 @@
+module AdeudosHelper
+end

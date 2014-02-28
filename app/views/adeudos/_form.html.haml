@@ -1,0 +1,13 @@
+= simple_form_for(@adeudo) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :numero_libros
+    = f.input :multa
+    = f.input :total
+    = f.input :concepto
+    = f.input :perfil_id
+    = f.input :libro_id
+
+  .form-actions
+    = f.button :submit
