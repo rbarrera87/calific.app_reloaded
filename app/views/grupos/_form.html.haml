@@ -1,6 +1,6 @@
 = simple_form_for @grupo, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :nombre
-  = f.input :descripcion
+  = f.input :nombre, label: 'Nombre:'
+  = f.input :descripcion, label: 'Descripción:'
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), grupos_path, :class => 'btn'

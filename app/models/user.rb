@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :asignaturas, through: :user_asignaturas
   has_many :user_asignaturas
+  has_one :perfil
 
   #attr_accessible :roles
 

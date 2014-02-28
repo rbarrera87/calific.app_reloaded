@@ -1,6 +1,7 @@
 - model_class = Grado
 .page-header
-  %h3.text-primary.text-center=t '.title', :default => model_class.model_name.human.titleize
+  %h3.text-primary.text-center
+    =t '.title', :default => [:'helpers.titles.show', 'show %{model}'], :model => model_class.model_name.human.titleize
 
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'

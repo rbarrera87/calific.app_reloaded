@@ -1,0 +1,17 @@
+es:
+  helpers:
+    actions: "Accciones"
+
+    links:
+      back: "Regresar"
+      cancel: "Cancelar"
+      confirm: "Estas seguro?"
+      destroy: "Borrar"
+      new: "Nuevo"
+      edit: "Editar"
+      
+    titles:
+      edit: "Editar %{model}"
+      save: "Guardar %{model}"
+      new: "Nuevo %{model}"
+      delete: "Borrar %{model}"
