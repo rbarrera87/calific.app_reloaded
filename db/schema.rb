@@ -12,7 +12,23 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
+  create_table "adeudos", force: true do |t|
+    t.integer  "numero_libros"
+    t.decimal  "multa",         precision: 10, scale: 0
+    t.decimal  "total",         precision: 10, scale: 0
+    t.string   "concepto"
+    t.integer  "perfil_id",                              null: false
+    t.integer  "libro_id",                               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adeudos", ["perfil_id", "libro_id"], name: "index_adeudos_on_perfil_id_and_libro_id", unique: true, using: :btree
+
+
 ActiveRecord::Schema.define(version: 20140226205124) do
+
 
 
   create_table "asignaturas", force: true do |t|
@@ -69,9 +85,11 @@ ActiveRecord::Schema.define(version: 20140226205124) do
     t.string   "turno"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",             null: false
-    t.integer  "grupo_id",            null: false
-    t.integer  "carrera_id",          null: false
+
+    t.integer  "user_id",                             null: false
+    t.integer  "grupo_id",                            null: false
+    t.integer  "carrera_id",                          null: false
+    t.boolean  "tsu_ingenieria",      default: false
   end
 
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
@@ -82,6 +100,18 @@ ActiveRecord::Schema.define(version: 20140226205124) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+
+
+  add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
+
+  create_table "rel_grado_grupos", force: true do |t|
+    t.integer  "grado_id",   null: false
+    t.integer  "grupo_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
 
