@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140228190849) do
+
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -84,12 +86,26 @@ ActiveRecord::Schema.define(version: 20140228190849) do
 
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
 
+  create_table "prestamo_libros", force: true do |t|
+    t.decimal  "multa_dia",   precision: 10, scale: 0
+    t.string   "comentarios"
+    t.integer  "perfil_id",                            null: false
+    t.integer  "libro_id",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+
+  add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
+
   create_table "rel_grado_grupos", force: true do |t|
     t.integer  "grado_id",   null: false
     t.integer  "grupo_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
 
