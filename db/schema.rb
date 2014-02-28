@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20140228174726) do
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
   create_table "rel_grado_grupos", force: true do |t|
-    t.integer  "grado_id"
-    t.integer  "grupo_id"
+    t.integer  "grado_id",   null: false
+    t.integer  "grupo_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
