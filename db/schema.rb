@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140228190849) do
   end
 
   create_table "libros", force: true do |t|
-    t.string   "nombre_libro"
+    t.string   "nombre"
     t.string   "editorial"
     t.string   "autor"
     t.string   "categoria"
