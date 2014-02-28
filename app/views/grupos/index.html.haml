@@ -1,7 +1,7 @@
 - model_class = Grupo
 .page-header
 %h3.text-primary.text-center
-  Lista de grupos
+  =t '.title', :default => [:'helpers.titles.index', 'index %{model}'], :model => model_class.model_name.human.pluralize
 %table.table.table-bordered.table-hover.table-condensed
   %thead
     %tr

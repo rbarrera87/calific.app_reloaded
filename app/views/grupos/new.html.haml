@@ -1,5 +1,5 @@
 - model_class = Grupo
 .page-header
 %h3.text-primary.text-center
-	Registrando Grupo
+	=t '.title', :default => [:'helpers.titles.new', 'new %{model}'], :model => model_class.model_name.human.titleize
 = render :partial => "form"
