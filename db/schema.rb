@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140228190849) do
-
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -95,7 +93,6 @@ ActiveRecord::Schema.define(version: 20140228190849) do
     t.datetime "updated_at"
   end
 
-
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
   create_table "rel_grado_grupos", force: true do |t|
@@ -105,18 +102,25 @@ ActiveRecord::Schema.define(version: 20140228190849) do
     t.datetime "updated_at"
   end
 
-
-
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
 
-  create_table "user_asignaturas", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "asignatura_id"
+  create_table "table_libros", force: true do |t|
+    t.string   "nombre_libro"
+    t.string   "editorial"
+    t.string   "autor"
+    t.string   "categoria"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_asignaturas", ["user_id", "asignatura_id"], name: "index_user_asignaturas_on_user_id_and_asignatura_id", unique: true, using: :btree
+  create_table "user_asignaturas", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_asignaturas", ["user_id", "subject_id"], name: "index_user_asignaturas_on_user_id_and_subject_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
