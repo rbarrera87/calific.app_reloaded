@@ -1,13 +1,13 @@
 - model_class = Asignatura
 .page-header
   %h3.text-primary.text-center
-    =t '.title', :default => [:'helpers.titles.show', 'show %{model}'], :model => model_class.model_name.human.titleize
+    =t '.title', default: [:'helpers.titles.show', 'show %{model}'], :model => model_class.model_name.human.titleize
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
   %br
   = @asignatura.nombre
 %p
-  %strong= model_class.human_attribute_name(:descripcion) + ':'
+  %strong= model_class.human_attribute_name(:descripción) + ':'
   %br
   = @asignatura.descripcion
 
