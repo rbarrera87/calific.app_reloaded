@@ -49,12 +49,8 @@
 
 			</div>
 			<div class="row">
-				<div class="span9">
+				<div class="span12">
 					<%= yield %>
-				</div>
-				<div class="span3">
-						<h4><%=t '.title', :default => [:'helpers.titles.welcome']%></h4> <%= current_user.email %>
-						<p><%= link_to t('.link', default: t("helpers.links.edit_account")), edit_user_registration_path %></p>
 				</div>
 			</div>
 		</div>
