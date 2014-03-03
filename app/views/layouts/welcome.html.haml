@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %title CalificaMe
+    %title
+      Calific.App
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -15,17 +16,30 @@
                 %span.icon-bar
                 %span.icon-bar
                 %span.icon-bar
-              %a.brand Calific.App
+              %a.brand
+                Calific.App
+              .nav-collapse
+                %ul.nav
+                  %a.button.btn.btn-sm.btn-primary{type: "button", href: "dashboard/"}=t '.title', default: [:'helpers.titles.dashboard']
+                %li.dropdown.pull-right
+                  %a.dropdown-toggle{"data-toggle" => "dropdown"}
+                    =t '.title', default: [:'helpers.titles.options'] 
+                    %strong.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: "#"}
+                        =t '.title', default: [:'helpers.titles.profile'] 
+                    %li
+                      = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
+
       .row
         .span9
-          = yield
+          %h4 
+            = yield
         .span3
-          - if user_signed_in?
-            %h4 Bienvenido
-            = current_user.email
-            %p
-              = link_to('Edit registration', edit_user_registration_path)
-          - else
-            %p= link_to 'Solicita una cuenta', new_user_registration_path
-            %p
-              Si ya tienes una cuenta: #{link_to 'Logueate', new_user_session_path}
+          - user_signed_in?
+          %h4=t '.title', default: [:'helpers.titles.welcome']
+          = current_user.email
+          %p
+          = link_to t('.link', default: t("helpers.links.edit_account")), edit_user_registration_path
+    

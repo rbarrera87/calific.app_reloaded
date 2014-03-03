@@ -1,17 +1,17 @@
 - model_class = Asignatura
 .page-header
   %h3.text-primary.text-center
-    =t '.title', :default => [:'helpers.titles.show', 'show %{model}'], :model => model_class.model_name.human.titleize
+    =t '.title', default: [:'helpers.titles.show', 'show %{model}'], model: model_class.model_name.human.titleize
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
   %br
   = @asignatura.nombre
 %p
-  %strong= model_class.human_attribute_name(:descripcion) + ':'
+  %strong= model_class.human_attribute_name(:descripción) + ':'
   %br
   = @asignatura.descripcion
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), asignaturas_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_asignatura_path(@asignatura), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), asignatura_path(@asignatura), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('.back', default: t("helpers.links.back")), asignaturas_path, class: 'btn'
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_asignatura_path(@asignatura), class: 'btn'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), asignatura_path(@asignatura), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'

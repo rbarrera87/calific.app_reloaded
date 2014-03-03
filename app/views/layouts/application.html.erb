@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CalificaMe</title>
+  <title>
+  	Calific.App
+  </title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -17,21 +19,24 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </a>
-				      <a class="brand">Calific.App</a>
+				      <a class="brand">
+				      	 Calific.App
+				      </a>
 				      <div class="nav-collapse">
 				        <ul class="nav">
-				          <li><%= link_to "Lista de asignaturas", asignaturas_path %></li>
-				          <li><%= link_to "Menu2" %></li>
-				          <li><%= link_to "Menu3" %></li>
+				          <li><%= link_to t('.link', default: t("helpers.links.subjects")), asignaturas_path %></li>
+				          <li><%= link_to t('.link', default: t("helpers.links.career")), carreras_path %></li>
+				          <li><%= link_to t('.link', default: t("helpers.links.grades")), grados_path %></li>
+				          <li><%= link_to t('.link', default: t("helpers.links.groups")), grupos_path %></li>
 				        </ul>
 				          <li class="dropdown pull-right">
-							 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Opciones<strong class="caret"></strong></a>
+							 <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%=t '.title', default: [:'helpers.titles.opciones']%><strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">Ver perfil</a>
+									<a href="#"><%=t '.title', default: [:'helpers.titles.profile'] %></a>
 								</li>
 								<li>
-									<%= link_to 'Cerrar sesión', destroy_user_session_path(), method: :delete %>
+									<%= link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete%>
 								</li>
 							</ul>
 						</li>
@@ -44,18 +49,8 @@
 
 			</div>
 			<div class="row">
-				<div class="span9">
+				<div class="span12">
 					<%= yield %>
-				</div>
-				<div class="span3">
-					<% if user_signed_in?%>
-						<h4>Bienvenido</h4> <%= current_user.email %>
-						<p> <%= link_to('Edit registration', edit_user_registration_path) %></p>
-					<% else %>
-
-						<p><%= link_to 'Solicita una cuenta', new_user_registration_path %></p>
-						<p>Si ya tienes una cuenta: <%= link_to 'Logueate', new_user_session_path %></p>
-					<% end %>
 				</div>
 			</div>
 		</div>

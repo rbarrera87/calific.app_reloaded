@@ -1,5 +1,5 @@
 - model_class = Grado
 .page-header
 %h3.text-primary.text-center
-	=t '.title', :default => [:'helpers.titles.edit', 'update %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+	=t '.title', default: [:'helpers.titles.edit', 'update %{model}'], model: model_class.model_name.human.titleize
+= render partial: "form"
