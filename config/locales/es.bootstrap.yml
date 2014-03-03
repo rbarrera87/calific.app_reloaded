@@ -1,17 +1,40 @@
 es:
-  helpers:
-    actions: "Accciones"
+    
 
+  helpers:
+    actions: "Acciones"
     links:
       back: "Regresar"
       cancel: "Cancelar"
       confirm: "Estas seguro?"
-      destroy: "Borrar"
+      destroy: "Eliminar"
       new: "Nuevo"
       edit: "Editar"
-      
+      edit_account: "Editar cuenta"
+      log_out: "Cerrar sesión"
+      sign_in: "Iniciar sesión"
+      subjects: "Asignaturas"
+      career: "Carreras"
+      grades: "Grados"
+      groups: "Grupos"
+
     titles:
       edit: "Editar %{model}"
       save: "Guardar %{model}"
       new: "Nuevo %{model}"
-      delete: "Borrar %{model}"
+      delete: "Eliminar %{model}"
+      index: "Lista de  %{model}"
+      show: "Mostrando  %{model}"
+      dashboard: "Dashboard"
+      options: "Opciones"
+      profie: "Perfil"
+      welcome: "Bienvenido"
+      signin: "Inicia sesión"
+      index2: "Inicio"
+      profile: "Perfil"
+
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+      index: "Lista de  %{model}"
+

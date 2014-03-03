@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title
+      Calific.App 
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    
+  %body
+    .container-fluid
+      #encabezado.row-fluid
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container
+              %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              %a.brand=t '.title', default: [:'helpers.titles.welcome']
+      .row
+        .span9
+          %h4 
+            = yield 
+        .span3
+          .jumbotron
+            %h3
+              =t '.title', default: [:'helpers.titles.signin']
+            %p{style: "text-align: justify;"}
+              Para acceder a todos los beneficios que Calific.App te brinda, debes de iniciar sesion con el usuario y la contraseña que te otorgaron al momento de registrarte, si aún no tienes una cuenta, solicitala con en Servicios Escolares.
+            %p
+              %a.button.btn.btn-sm.btn-primary{type: "button", href: "users/sign_in"}=t '.link', default: [:'helpers.titles.signin']
+
