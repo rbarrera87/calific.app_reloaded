@@ -1,0 +1,17 @@
+%h1 Listing prestamo_libros
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @prestamo_libros.each do |prestamo_libro|
+    %tr
+      %td= link_to 'Show', prestamo_libro
+      %td= link_to 'Edit', edit_prestamo_libro_path(prestamo_libro)
+      %td= link_to 'Destroy', prestamo_libro, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Prestamo libro', new_prestamo_libro_path

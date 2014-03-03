@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20140303212653) do
+
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -109,23 +111,16 @@ ActiveRecord::Schema.define(version: 20140303212653) do
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
 
-  create_table "sti_criterios", force: true do |t|
-    t.string   "nombre"
-    t.string   "descripcion"
-    t.string   "estado"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+
 
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"
-    t.integer  "asignatura_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_asignaturas", ["user_id", "asignatura_id"], name: "index_user_asignaturas_on_user_id_and_asignatura_id", unique: true, using: :btree
+  add_index "user_asignaturas", ["user_id", "subject_id"], name: "index_user_asignaturas_on_user_id_and_subject_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
