@@ -29,6 +29,9 @@ gem "cancan", "1.6.10"
 #Simple form
 gem "simple_form", "~> 3.0.1"
 
+#Active-admin
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.3.8"
 
