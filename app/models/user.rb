@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create :crear_perfil
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -24,4 +26,13 @@ class User < ActiveRecord::Base
 	    ((roles_mask.to_i || 0) & 2**ROLES.index(r)).zero?
 	  end
 	end
+
+  private
+    def crear_perfil
+      perfil = user.build_perfil   
+      perfil.email = user.email
+                     
+      perfil.save(validate: false)  
+    end
+  end
 end
