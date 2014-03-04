@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
 
   private
     def crear_perfil
-      perfil = user.build_perfil   
-      perfil.email = user.email
-                     
-      perfil.save(validate: false)  
+      perfil = self.build_perfil
+      perfil.grupo_id = 0
+      perfil.carrera_id = 0    
+      perfil.save(validate:false) 
     end
-  end
+
 end
