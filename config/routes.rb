@@ -1,7 +1,5 @@
 CalificaMe::Application.routes.draw do
   
-  resources :criterios
-
   devise_for :users
   resources :welcome
   resources :asignaturas
@@ -9,8 +7,9 @@ CalificaMe::Application.routes.draw do
   resources :grados
   resources :grupos
   resources :carreras
-  resources :adeudos
   resources :dashboard
+  resources :criterios
+  resources :prestamo_libros
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -53,7 +52,7 @@ CalificaMe::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

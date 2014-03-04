@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "Adeudos" do
-  describe "GET /adeudos" do
+describe "PrestamoLibros" do
+  describe "GET /prestamo_libros" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get adeudos_path
+      get prestamo_libros_path
       response.status.should be(200)
     end
   end
