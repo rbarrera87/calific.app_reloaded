@@ -1,0 +1,2 @@
+class Indicador < CriterioIndicador
+end
