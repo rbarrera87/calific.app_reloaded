@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305155910) do
+
+ActiveRecord::Schema.define(version: 20140304000328) do
+
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
