@@ -1,5 +1,5 @@
 CalificaMe::Application.routes.draw do
-
+  resources :asistencias
   devise_for :users
   resources :welcome
   resources :asignaturas

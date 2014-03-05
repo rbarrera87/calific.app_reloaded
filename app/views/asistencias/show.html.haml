@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Presente:
+  = @asistencia.presente
+
+= link_to 'Edit', edit_asistencia_path(@asistencia)
+\|
+= link_to 'Back', asistencias_index_path
