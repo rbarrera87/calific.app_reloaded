@@ -10,7 +10,7 @@ CalificaMe::Application.routes.draw do  resources :asistencias
   resources :criterios
   resources :prestamo_libros
   resources :indicadores
-  resources :profesor_catalogos
+  resources :profesors
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

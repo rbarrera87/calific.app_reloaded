@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306182730) do
+ActiveRecord::Schema.define(version: 20140306223752) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20140306182730) do
 
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
-  create_table "profesor_catalogos", force: true do |t|
+  create_table "profesores", force: true do |t|
     t.string   "tipo_horario"
     t.string   "estado"
     t.datetime "created_at"
