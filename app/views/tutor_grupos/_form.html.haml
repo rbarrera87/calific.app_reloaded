@@ -1,0 +1,8 @@
+= simple_form_for @tutor_grupo, :html => { :class => 'form-horizontal' } do |f|
+  = f.collection_select :carrera_id, Carrera.all, :id, :nombre
+  = f.collection_select :grado_id, Grado.all, :id, :nombre
+  = f.collection_select :grupo_id, Grupo.all, :id, :nombre
+  = f.collection_select :perfil_id, Perfil.all, :id, :nombre
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), tutor_grupos_path, :class => 'btn'
