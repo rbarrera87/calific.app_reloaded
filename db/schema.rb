@@ -129,23 +129,6 @@ ActiveRecord::Schema.define(version: 20140307151014) do
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
 
-  create_table "rel_perfil_grupo_carreras", force: true do |t|
-    t.integer  "perfil_id"
-    t.integer  "grupo_id"
-    t.integer  "carrera_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tutor_grupos", force: true do |t|
-    t.integer  "carrera_id"
-    t.integer  "grupo_id"
-    t.integer  "grado_id"
-    t.integer  "perfil_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"
     t.integer  "asignatura_id"
