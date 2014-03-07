@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20140304000328) do
-
+ActiveRecord::Schema.define(version: 20140307182807) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -33,7 +31,10 @@ ActiveRecord::Schema.define(version: 20140304000328) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "docente_id",  null: false
   end
+
+  add_index "carreras", ["docente_id"], name: "index_carreras_on_docente_id", unique: true, using: :btree
 
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
@@ -49,14 +50,20 @@ ActiveRecord::Schema.define(version: 20140304000328) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "docente_id",  null: false
   end
+
+  add_index "grados", ["docente_id"], name: "index_grados_on_docente_id", unique: true, using: :btree
 
   create_table "grupos", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "docente_id",  null: false
   end
+
+  add_index "grupos", ["docente_id"], name: "index_grupos_on_docente_id", unique: true, using: :btree
 
   create_table "libros", force: true do |t|
     t.string   "nombre"
@@ -97,8 +104,10 @@ ActiveRecord::Schema.define(version: 20140304000328) do
     t.integer  "grupo_id",                            null: false
     t.integer  "carrera_id",                          null: false
     t.boolean  "tsu_ingenieria",      default: false
+    t.integer  "docente_id",                          null: false
   end
 
+  add_index "perfiles", ["docente_id"], name: "index_perfiles_on_docente_id", unique: true, using: :btree
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
 
   create_table "prestamo_libros", force: true do |t|
