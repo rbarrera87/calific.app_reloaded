@@ -5,19 +5,19 @@
 %p
   %strong= model_class.human_attribute_name(:carrera_id) + ':'
   %br
-  = @tutor_grupo.carrera_id
+  = @tutor_grupo.carrera.nombre
 %p
   %strong= model_class.human_attribute_name(:grado_id) + ':'
   %br
-  = @tutor_grupo.grado_id
+  = @tutor_grupo.grado.nombre
 %p
   %strong= model_class.human_attribute_name(:grupo_id) + ':'
   %br
-  = @tutor_grupo.grupo_id
+  = @tutor_grupo.grupo.nombre
 %p
   %strong= model_class.human_attribute_name(:perfil_id) + ':'
   %br
-  = @tutor_grupo.perfil_id
+  = @tutor_grupo.perfil.nombre
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), tutor_grupos_path, :class => 'btn'
