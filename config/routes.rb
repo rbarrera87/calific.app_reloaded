@@ -1,4 +1,6 @@
 CalificaMe::Application.routes.draw do
+  resources :consejeros
+
   resources :asistencias
   devise_for :users
   resources :welcome
