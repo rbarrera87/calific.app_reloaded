@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307151014) do
+ActiveRecord::Schema.define(version: 20140308004109) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140307151014) do
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.string   "estado"
+    t.boolean  "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140307151014) do
     t.integer  "grado_id",                            null: false
   end
 
+  add_index "perfiles", ["grado_id"], name: "index_perfiles_on_grado_id", unique: true, using: :btree
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
 
   create_table "prestamo_libros", force: true do |t|
@@ -131,12 +132,12 @@ ActiveRecord::Schema.define(version: 20140307151014) do
 
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"
-    t.integer  "asignatura_id"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_asignaturas", ["user_id", "asignatura_id"], name: "index_user_asignaturas_on_user_id_and_asignatura_id", unique: true, using: :btree
+  add_index "user_asignaturas", ["user_id", "subject_id"], name: "index_user_asignaturas_on_user_id_and_subject_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -7,13 +7,13 @@
   %br
   = @consejero.carrera.nombre
 %p
-  %strong= model_class.human_attribute_name(:grupo_id) + ':'
-  %br
-  = @consejero.grupo.nombre
-%p
   %strong= model_class.human_attribute_name(:grado_id) + ':'
   %br
   = @consejero.grado.nombre
+%p
+  %strong= model_class.human_attribute_name(:grupo_id) + ':'
+  %br
+  = @consejero.grupo.nombre
 %p
   %strong= model_class.human_attribute_name(:perfil_id) + ':'
   %br
