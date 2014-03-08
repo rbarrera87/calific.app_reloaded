@@ -1,2 +1,2 @@
-class Criterio < CriteriosIndicadores
+class Criterio < CriterioIndicador
 end
