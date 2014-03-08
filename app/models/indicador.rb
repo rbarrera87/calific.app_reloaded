@@ -1,3 +1,3 @@
 class Indicador < CriterioIndicador
-
+	
 end
