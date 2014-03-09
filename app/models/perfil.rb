@@ -4,7 +4,7 @@ class Perfil < ActiveRecord::Base
 		belongs_to :carrera
 		belongs_to :grupo
 
-		has_one :tutor_grupo
+		has_one :consejero
 
 	 
  validates :fotografia_url, :numero_control, :fecha_nacimiento, :estado_civil, :sexo,
