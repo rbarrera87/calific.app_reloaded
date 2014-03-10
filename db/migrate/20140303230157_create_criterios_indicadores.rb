@@ -3,7 +3,7 @@ class CreateCriteriosIndicadores < ActiveRecord::Migration
     create_table :criterios_indicadores do |t|
       t.string :nombre
       t.string :descripcion
-      t.string :estado
+      t.boolean :estado
       t.string :type
 
       t.timestamps
