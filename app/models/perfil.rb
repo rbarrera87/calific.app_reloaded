@@ -1,9 +1,9 @@
 class Perfil < ActiveRecord::Base
 	self.table_name = "perfiles"
+	
 		belongs_to :user
 		belongs_to :carrera
 		belongs_to :grupo
-
 		has_one :consejero
 
 	 
