@@ -1,4 +1,5 @@
 - model_class = Criterio
 .page-header
-  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+%h3.text-primary.text-center
+	=t '.title', default: [:'helpers.titles.new', 'new %{model}'], model: model_class.model_name.human.titleize
+= render partial: "form"
