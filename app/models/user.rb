@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
       perfil = self.build_perfil
       perfil.grupo_id = 0
       perfil.carrera_id = 0    
+      perfil.grado_id = 0
       perfil.save(validate:false) 
     end
 

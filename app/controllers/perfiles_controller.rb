@@ -2,7 +2,7 @@ class PerfilesController < ApplicationController
    before_action :set_perfil, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   def index
-    @perfil = current_user.perfil
+    @perfil = Perfil.last
   end
 
   def show
@@ -14,17 +14,18 @@ class PerfilesController < ApplicationController
   end
 
   def edit
+    @perfil = Perfil.last
   end
 
   def update
     respond_to do |format|
-      if @perfil.update(perfil_params)
-        format.html { redirect_to @perfil, notice: 'El perfil se ha actualizado' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @perfil.errors, status: :unprocessable_entity }
-      end
+       if @perfil.update(perfil_params)
+          format.html { redirect_to @perfil, notice: 'El perfil se ha actualizado' }
+          format.json { head :no_content }
+       else
+         format.html { render action: 'edit' }
+         format.json { render json: @perfil.errors, status: :unprocessable_entity }
+       end
     end
   end
 
@@ -51,7 +52,7 @@ class PerfilesController < ApplicationController
       params.require(:perfil).permit(
     
 
-      :nombre,
+       :nombre,
        :apellido_paterno,
        :apellido_materno,
        :numero_control,

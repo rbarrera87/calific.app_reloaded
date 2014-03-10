@@ -4,6 +4,8 @@ CalificaMe::Application.routes.draw do
   resources :welcome
   resources :asignaturas
   resources :perfiles
+  resources :perfils
+  resources :perfile
   resources :grados
   resources :grupos
   resources :carreras
