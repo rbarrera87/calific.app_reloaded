@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140305155910) do
 
+
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -95,8 +96,10 @@ ActiveRecord::Schema.define(version: 20140305155910) do
     t.integer  "grupo_id",                            null: false
     t.integer  "carrera_id",                          null: false
     t.boolean  "tsu_ingenieria",      default: false
+    t.integer  "grado_id",                            null: false
   end
 
+  add_index "perfiles", ["grado_id"], name: "index_perfiles_on_grado_id", unique: true, using: :btree
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
 
   create_table "prestamo_libros", force: true do |t|
