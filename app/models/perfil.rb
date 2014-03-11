@@ -1,5 +1,6 @@
 class Perfil < ActiveRecord::Base
 	self.table_name = "perfiles"
+	class_name = Perfil
 	belongs_to :user
 	belongs_to :carrera
 	belongs_to :grupo

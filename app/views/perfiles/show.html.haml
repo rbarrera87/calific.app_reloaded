@@ -1,2 +1,19 @@
-%h1 Perfiles#show
-%p Find me in app/views/perfiles/show.html.haml
+- model_class = Perfil
+- class_name = Perfil
+.page-header
+  %h3.text-primary.text-center
+    =t '.title', default: [:'helpers.titles.show', 'show %{model}'], model: model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:nombre) + ':'
+  %br
+  = @perfil.nombre
+%p
+  %strong= model_class.human_attribute_name(:apellido) + ':'
+  %br
+  = @perfil.apellido_paterno
+
+.form-actions
+  = link_to t('.back', default: t("helpers.links.back")), perfile_path, class: 'btn'
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_perfile_path(@perfil), class: 'btn'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), perfile_path(@perfile), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
