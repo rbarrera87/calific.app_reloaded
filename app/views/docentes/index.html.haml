@@ -1,0 +1,17 @@
+%h1 Listing docentes
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @docentes.each do |docente|
+    %tr
+      %td= link_to 'Show', docente
+      %td= link_to 'Edit', edit_docente_path(docente)
+      %td= link_to 'Destroy', docente, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Docente', new_docente_path
