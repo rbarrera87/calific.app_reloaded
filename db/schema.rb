@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140305155910) do
 
 
@@ -49,10 +48,19 @@ ActiveRecord::Schema.define(version: 20140305155910) do
     t.datetime "updated_at"
   end
 
+  create_table "consejeros", force: true do |t|
+    t.integer  "carrera_id"
+    t.integer  "grupo_id"
+    t.integer  "grado_id"
+    t.integer  "perfil_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.boolean  "estado"
+    t.string   "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
