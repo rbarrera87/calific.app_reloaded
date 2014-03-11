@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307234059) do
+
+ActiveRecord::Schema.define(version: 20140305155910) do
+
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -41,7 +43,7 @@ ActiveRecord::Schema.define(version: 20140307234059) do
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.string   "estado"
+    t.boolean  "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
