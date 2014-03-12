@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305155910) do
+ActiveRecord::Schema.define(version: 20140311020634) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -21,11 +21,10 @@ ActiveRecord::Schema.define(version: 20140305155910) do
   end
 
   create_table "asistencias", force: true do |t|
-
-    t.boolean  "presente",   default: false
-    t.integer  "perfil_id",                  null: false
-    t.integer  "grupo_id",                   null: false
-    t.integer  "grado_id",                   null: false
+    t.boolean  "presente",   default: true
+    t.integer  "perfil_id",                 null: false
+    t.integer  "grupo_id",                  null: false
+    t.integer  "grado_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,21 +59,11 @@ ActiveRecord::Schema.define(version: 20140305155910) do
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.string   "estado"
+    t.boolean  "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-
-  create_table "docentes", force: true do |t|
-    t.integer  "perfil_id",  null: false
-    t.integer  "carrera_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "docentes", ["perfil_id", "carrera_id"], name: "index_docentes_on_perfil_id_and_carrera_id", unique: true, using: :btree
 
   create_table "grados", force: true do |t|
     t.string   "nombre"
