@@ -32,6 +32,9 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.plural /(\bdetalles)(\w+|_|$)/, '\1\2'
   inflect.singular /(\bdetalle)s(\w+|_|$)/, '\1\2'
 
+  inflect.plural /(\bperfil)(\w+|_|$)/, '\1es\2'
+  inflect.plural /(\bperfiles)(\w+|_|$)/, '\1\2'
+
   # Para evitar errores de pluralización utilizados por formtastic al utilizar i18n
   # (https://github.com/justinfrench/formtastic/blob/master/lib/formtastic.rb#L1850)
   inflect.irregular 'label', 'labels'
