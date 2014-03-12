@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310191232) do
+ActiveRecord::Schema.define(version: 20140311020634) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140310191232) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -54,7 +55,11 @@ ActiveRecord::Schema.define(version: 20140310191232) do
   end
 
   create_table "asistencias", force: true do |t|
-    t.boolean  "presente"
+
+    t.boolean  "presente",   default: true
+    t.integer  "perfil_id",                 null: false
+    t.integer  "grupo_id",                  null: false
+    t.integer  "grado_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,7 +92,7 @@ ActiveRecord::Schema.define(version: 20140310191232) do
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.string   "estado"
+    t.boolean  "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
