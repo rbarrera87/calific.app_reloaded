@@ -1,5 +1,4 @@
-
-CalificaMe::Application.routes.draw do  
+CalificaMe::Application.routes.draw do
 
   devise_for :users
   resources :welcome
