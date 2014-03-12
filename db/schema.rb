@@ -10,9 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20140305155910) do
-
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -62,34 +60,6 @@ ActiveRecord::Schema.define(version: 20140305155910) do
     t.string   "descripcion"
     t.string   "estado"
     t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "datos", force: true do |t|
-    t.string   "nombre"
-    t.string   "apellido_paterno"
-    t.string   "apellido_materno"
-    t.string   "numero_control"
-    t.date     "fecha_nacimiento"
-    t.string   "estado_civil"
-    t.string   "sexo"
-    t.integer  "cp"
-    t.string   "curp"
-    t.string   "nss"
-    t.string   "rfc"
-    t.integer  "telefono"
-    t.integer  "celular"
-    t.string   "calle"
-    t.string   "numero_exterior"
-    t.string   "numero_interior"
-    t.string   "numero_departamento"
-    t.string   "referencias"
-    t.text     "comentarios"
-    t.string   "poblacion"
-    t.string   "estado"
-    t.string   "situacion"
-    t.string   "turno"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
