@@ -1,7 +1,8 @@
-= simple_form_for(@indicador) do |f|
-  = f.error_notification
-
-  .form-inputs
-
+- model_class = Indicador
+= simple_form_for @indicador, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :nombre, label: 'Nombre:'
+  = f.input :descripcion, label: 'Descripción:'
+  = f.input :estado, label: 'Activo:', as: :boolean, checked_value: true, unchecked_value: false
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), indicadores_path, :class => 'btn'
