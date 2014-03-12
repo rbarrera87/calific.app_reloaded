@@ -1,0 +1,19 @@
+= simple_form_for @consejero, :html => { :class => 'form-horizontal' } do |f|
+  
+  = f.label 'Carrera:'
+  = f.collection_select :carrera_id, Carrera.all, :id, :nombre
+  %br/
+  %br/
+  = f.label 'Grado:'
+  = f.collection_select :grado_id, Grado.all, :id, :nombre
+  %br/
+  %br/
+  = f.label 'Grupo:'
+  = f.collection_select :grupo_id, Grupo.all, :id, :nombre
+  %br/
+  %br/
+  = f.label 'Nombre del Tutor:'
+  = f.collection_select :perfil_id, Perfil.all, :id, :nombre
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), consejeros_path, :class => 'btn'

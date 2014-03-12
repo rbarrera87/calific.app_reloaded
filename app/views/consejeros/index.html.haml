@@ -1,0 +1,25 @@
+- model_class = Consejero
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:clave)
+      %th= model_class.human_attribute_name(:carrera)
+      %th= model_class.human_attribute_name(:grado)
+      %th= model_class.human_attribute_name(:grupo)
+      %th= model_class.human_attribute_name(:perfil)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @consejeros.each do |consejero|
+      %tr
+        %td= link_to consejero.id, consejero_path(consejero)
+        %td= consejero.carrera.nombre
+        %td= consejero.grado.nombre
+        %td= consejero.grupo.nombre
+        %td= consejero.perfil.nombre
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_consejero_path(consejero), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), consejero_path(consejero), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_consejero_path, :class => 'btn btn-primary'
