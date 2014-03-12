@@ -3,5 +3,4 @@ class Asistencia < ActiveRecord::Base
 	belongs_to :perfil
 	belongs_to :grupo
 	belongs_to :grado
-
 end
