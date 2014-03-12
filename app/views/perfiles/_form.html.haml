@@ -1,9 +1,9 @@
-- model_class = Perfil
+a- model_class = Perfil
 - class_name = Perfil
 = simple_form_for @perfil, :html => { :class => 'form-horizontal' } do |f|
   = f.input :nombre
   = f.input :apellido_paterno
-  = f.input :apellido_materno
+  = f.input :apellido_matearno
   = f.input :numero_control
   /= f.input :fecha_nacimiento
   = f.input :estado_civil
@@ -26,4 +26,4 @@
   = f.input :turno
   .form-actions
   = f.button :submit, class: 'btn-primary'
-  = link_to t('.cancel', default: t("helpers.links.cancel")), perfile_path, class: 'btn'
+  = link_to t('.cancel', default: t("helpers.links.cancel")), perfiles_path, class: 'btn'
