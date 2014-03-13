@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Calificacion ordinaria:
+  = @calificacion.calificacion_ordinaria
+%p
+  %b Calificacion remedial:
+  = @calificacion.calificacion_remedial
+%p
+  %b Calificacion extraordinaria:
+  = @calificacion.calificacion_extraordinaria
+%p
+  %b Calificacion final:
+  = @calificacion.calificacion_final
+
+= link_to 'Edit', edit_calificacion_path(@calificacion)
+\|
+/= link_to 'Back', calificaciones_index_path

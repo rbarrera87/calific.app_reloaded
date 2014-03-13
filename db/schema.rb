@@ -11,41 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311020634) do
-
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
-
-  create_table "admin_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-
+ActiveRecord::Schema.define(version: 20140313004112) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -55,11 +21,21 @@ ActiveRecord::Schema.define(version: 20140311020634) do
   end
 
   create_table "asistencias", force: true do |t|
-
     t.boolean  "presente",   default: true
     t.integer  "perfil_id",                 null: false
     t.integer  "grupo_id",                  null: false
     t.integer  "grado_id",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "asistencias", ["grado_id", "grupo_id", "perfil_id"], name: "index_asistencias_on_grado_id_and_grupo_id_and_perfil_id", unique: true, using: :btree
+
+  create_table "calificaciones", force: true do |t|
+    t.string   "calificacion_ordinaria"
+    t.string   "calificacion_remedial"
+    t.string   "calificacion_extraordinaria"
+    t.string   "calificacion_final"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -168,20 +144,6 @@ ActiveRecord::Schema.define(version: 20140311020634) do
 
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
-  create_table "profesor_catalogos", force: true do |t|
-    t.string   "tipo_horario"
-    t.string   "estado"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "profesores", force: true do |t|
-    t.string   "tipo_horario"
-    t.string   "estado"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rel_grado_grupos", force: true do |t|
     t.integer  "grado_id",   null: false
     t.integer  "grupo_id",   null: false
@@ -190,6 +152,18 @@ ActiveRecord::Schema.define(version: 20140311020634) do
   end
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
+
+  create_table "tutorias", force: true do |t|
+    t.integer  "mes1"
+    t.integer  "mes2"
+    t.integer  "mes3"
+    t.integer  "mes4"
+    t.integer  "grado_id"
+    t.integer  "grupo_id"
+    t.integer  "perfil_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"

@@ -1,0 +1,25 @@
+%h1 Listing calificaciones
+
+%table
+  %tr
+    %th Calificacion ordinaria
+    %th Calificacion remedial
+    %th Calificacion extraordinaria
+    %th Calificacion final
+    %th
+    %th
+    %th
+
+  - @calificaciones.each do |calificacion|
+    %tr
+      %td= calificacion.calificacion_ordinaria
+      %td= calificacion.calificacion_remedial
+      %td= calificacion.calificacion_extraordinaria
+      %td= calificacion.calificacion_final
+      %td= link_to 'Show', calificacion
+      %td= link_to 'Edit', edit_calificacion_path(calificacion)
+      %td= link_to 'Destroy', calificacion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Calificaciones', new_calificacion_path

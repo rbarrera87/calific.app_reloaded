@@ -1,0 +1,11 @@
+= simple_form_for(@calificacion) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :calificacion_ordinaria
+    = f.input :calificacion_remedial
+    = f.input :calificacion_extraordinaria
+    = f.input :calificacion_final
+
+  .form-actions
+    = f.button :submit
