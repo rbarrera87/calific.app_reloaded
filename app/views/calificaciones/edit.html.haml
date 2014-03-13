@@ -1,7 +1,4 @@
-%h1 Editing calificacion
-
-= render 'form'
-
-= link_to 'Show', @calificacion
-\|
-= link_to 'Back', calificaciones_index_path
+- model_class = Calificacion
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
