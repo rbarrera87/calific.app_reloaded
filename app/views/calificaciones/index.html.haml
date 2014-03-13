@@ -1,0 +1,27 @@
+- model_class = Calificacion
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:calificacion_ordinaria)
+      %th= model_class.human_attribute_name(:calificacion_remedial)
+      %th= model_class.human_attribute_name(:calificacion_extraordinaria)
+      %th= model_class.human_attribute_name(:calificacion_final)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @calificaciones.each do |calificacion|
+      %tr
+        %td= link_to calificacion.id, calificacion_path(calificacion)
+        %td= calificacion.calificacion_ordinaria
+        %td= calificacion.calificacion_remedial
+        %td= calificacion.calificacion_extraordinaria
+        %td= calificacion.calificacion_final
+        %td= calificacion.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_calificacion_path(calificacion), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), calificacion_path(calificacion), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_calificacion_path, :class => 'btn btn-primary'
