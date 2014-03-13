@@ -4,28 +4,36 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:mes1)
-      %th= model_class.human_attribute_name(:mes2)
-      %th= model_class.human_attribute_name(:mes3)
-      %th= model_class.human_attribute_name(:mes4)
-      %th= model_class.human_attribute_name(:grado_id)
-      %th= model_class.human_attribute_name(:grupo_id)
-      %th= model_class.human_attribute_name(:perfil_id)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th= model_class.human_attribute_name(:clave)
+      %th= model_class.human_attribute_name(:perfil)
+      %th= model_class.human_attribute_name(:grado)
+      %th= model_class.human_attribute_name(:grupo)
   %tbody
     - @tutorias.each do |tutoria|
       %tr
         %td= link_to tutoria.id, tutoria_path(tutoria)
+        %td= tutoria.perfil.nombre
+        %td= tutoria.grado.nombre
+        %td= tutoria.grupo.nombre
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:enero)
+      %th= model_class.human_attribute_name(:febrero)
+      %th= model_class.human_attribute_name(:marzo)
+      %th= model_class.human_attribute_name(:abril)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @tutorias.each do |tutoria|
+      %tr
         %td= tutoria.mes1
         %td= tutoria.mes2
         %td= tutoria.mes3
         %td= tutoria.mes4
-        %td= tutoria.grado_id
-        %td= tutoria.grupo_id
-        %td= tutoria.perfil_id
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_tutoria_path(tutoria), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), tutoria_path(tutoria), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+          = link_to t('.edit', default:t("helpers.links.edit")), edit_tutoria_path(tutoria), class: 'btn btn-success btn-mini btn-sm active'
+          = link_to t('.destroy', default: t("helpers.links.destroy")), tutoria_path(tutoria), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger btn-sm active'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_tutoria_path, :class => 'btn btn-primary'
+= link_to t('.new', default: t("helpers.links.new")), new_tutoria_path, class: 'btn btn-info btn-sm active'
+
+

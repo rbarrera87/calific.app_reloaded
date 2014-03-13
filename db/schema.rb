@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140313004112) do
 
+
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140313004112) do
   end
 
   add_index "asistencias", ["grado_id", "grupo_id", "perfil_id"], name: "index_asistencias_on_grado_id_and_grupo_id_and_perfil_id", unique: true, using: :btree
+
 
   create_table "calificaciones", force: true do |t|
     t.string   "calificacion_ordinaria"

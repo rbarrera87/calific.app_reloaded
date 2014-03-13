@@ -1,11 +1,22 @@
 = simple_form_for @tutoria, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :mes1
-  = f.input :mes2
-  = f.input :mes3
-  = f.input :mes4
-  = f.input :grado_id
-  = f.input :grupo_id
-  = f.input :perfil_id
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= f.label 'Grado:'
+        %th= f.label 'Grupo:'
+        %th= f.label 'Nombre del Tutor:'
+    %tbody
+      %tr
+        %td= f.collection_select :grado_id, Grado.all, :id, :nombre
+        %td= f.collection_select :grupo_id, Grupo.all, :id, :nombre
+        %td= f.collection_select :perfil_id, Perfil.all, :id, :nombre
+
+  %br/
+  %br/
+  = f.input :mes1, label: 'Enero:'
+  = f.input :mes2, label: 'Febrero:'
+  = f.input :mes3, label: 'Marzo:'
+  = f.input :mes4, label: 'Abril:'
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), tutorias_path, :class => 'btn'
