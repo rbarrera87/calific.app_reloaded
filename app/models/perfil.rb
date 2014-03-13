@@ -3,8 +3,10 @@ class Perfil < ActiveRecord::Base
   belongs_to :user
   belongs_to :carrera
   belongs_to :grupo
+  belongs_to :grado
   has_one :consejero
   belongs_to :docente
+  has_many :asistencias
 
   validates :fotografia_url, :numero_control, :fecha_nacimiento, :estado_civil, :sexo, :rfc, :curp, :calle,:poblacion,:estado, :situacion, :turno, presence: true
   validates :cp, :nss,  numericality: true
