@@ -1,20 +1,19 @@
 - model_class = Perfil
 .page-header
-%h3.text-primary.text-center
-  =t '.title', default: [:'helpers.titles.index', 'index %{model}'], model: model_class.model_name.human.pluralize
-%table.table.table-bordered.table-hover.table-condensed
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
   %thead
     %tr
       %th= model_class.human_attribute_name(:clave)
       %th= model_class.human_attribute_name(:nombre)
-      %th=t '.actions', default: t("helpers.actions")
+      %th= model_class.human_attribute_name(:apellido_paterno)
+      %th= model_class.human_attribute_name(:apellido_materno)
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
-    - @perfiles.each do |perfil|
-      %tr
-        %td= link_to perfil.id, perfile_path(perfil)
-        %td= perfil.nombre
-        %td
-          = link_to t('.edit', default: t("helpers.links.edit")), edit_perfile_path(perfil), class: 'btn btn-mini'
-          = link_to t('.destroy', default: t("helpers.links.destroy")), perfile_path(perfil), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
-
-= link_to t('.new', default: t("helpers.links.new")), new_perfile_path, class: 'btn btn-primary'
+    %tr
+      %td= link_to @perfil.id, perfil_path(@perfil)
+      %td= @perfil.nombre
+      %td= @perfil.apellido_paterno
+      %td= @perfil.apellido_materno
+      %td
+        = link_to t('.edit', :default => t("helpers.links.edit")), edit_perfil_path(@perfil), class: 'btn btn-success btn-mini btn-sm active'

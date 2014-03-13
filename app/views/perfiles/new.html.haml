@@ -1,6 +1,4 @@
 - model_class = Perfil
-- class_name = Perfil
 .page-header
-%h3.text-primary.text-center
-	=t '.title', default: [:'helpers.titles.new', 'new %{model}'], model: model_class.model_name.human.titleize
-= render partial: "form"
+  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

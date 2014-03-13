@@ -1,19 +1,112 @@
 - model_class = Perfil
-- class_name = Perfil
 .page-header
-  %h3.text-primary.text-center
-    =t '.title', default: [:'helpers.titles.show', 'show %{model}'], model: model_class.model_name.human.titleize
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
   %br
   = @perfil.nombre
 %p
-  %strong= model_class.human_attribute_name(:apellido) + ':'
+  %strong= model_class.human_attribute_name(:apellido_paterno) + ':'
   %br
   = @perfil.apellido_paterno
+%p
+  %strong= model_class.human_attribute_name(:apellido_materno) + ':'
+  %br
+  = @perfil.apellido_materno
+%p
+  %strong= model_class.human_attribute_name(:numero_control) + ':'
+  %br
+  = @perfil.numero_control
+%p
+  %strong= model_class.human_attribute_name(:estado_civil) + ':'
+  %br
+  = @perfil.estado_civil
+%p
+  %strong= model_class.human_attribute_name(:sexo) + ':'
+  %br
+  = @perfil.sexo
+%p
+  %strong= model_class.human_attribute_name(:cp) + ':'
+  %br
+  = @perfil.cp
+%p
+  %strong= model_class.human_attribute_name(:curp) + ':'
+  %br
+  = @perfil.curp
+%p
+  %strong= model_class.human_attribute_name(:nss) + ':'
+  %br
+  = @perfil.nss
+%p
+  %strong= model_class.human_attribute_name(:rfc) + ':'
+  %br
+  = @perfil.rfc
+%p
+  %strong= model_class.human_attribute_name(:telefono) + ':'
+  %br
+  = @perfil.telefono
+%p
+  %strong= model_class.human_attribute_name(:celular) + ':'
+  %br
+  = @perfil.celular
+%p
+  %strong= model_class.human_attribute_name(:calle) + ':'
+  %br
+  = @perfil.calle
+%p
+  %strong= model_class.human_attribute_name(:numero_exterior) + ':'
+  %br
+  = @perfil.numero_exterior
+%p
+  %strong= model_class.human_attribute_name(:numero_interior) + ':'
+  %br
+  = @perfil.numero_interior
+%p
+  %strong= model_class.human_attribute_name(:numero_departamento) + ':'
+  %br
+  = @perfil.numero_departamento
+%p
+  %strong= model_class.human_attribute_name(:referencias) + ':'
+  %br
+  = @perfil.referencias
+%p
+  %strong= model_class.human_attribute_name(:comentarios) + ':'
+  %br
+  = @perfil.comentarios
+%p
+  %strong= model_class.human_attribute_name(:poblacion) + ':'
+  %br
+  = @perfil.poblacion
+%p
+  %strong= model_class.human_attribute_name(:estado) + ':'
+  %br
+  = @perfil.estado
+%p
+  %strong= model_class.human_attribute_name(:situacion) + ':'
+  %br
+  = @perfil.situacion
+%p
+  %strong= model_class.human_attribute_name(:turno) + ':'
+  %br
+  = @perfil.turno
+%p
+  %strong= model_class.human_attribute_name(:carrera_id) + ':'
+  %br
+  = @perfil.carrera.nombre
+%p
+  %strong= model_class.human_attribute_name(:grado_id) + ':'
+  %br
+  = @perfil.grado.nombre
+%p
+  %strong= model_class.human_attribute_name(:grupo_id) + ':'
+  %br
+  = @perfil.grupo.nombre
+%p
+  %strong= model_class.human_attribute_name(:tsu_ingenieria) + ':'
+  %br
+  = @perfil.tsu_ingenieria
 
 .form-actions
-  = link_to t('.back', default: t("helpers.links.back")), perfile_path, class: 'btn'
-  = link_to t('.edit', default: t("helpers.links.edit")), edit_perfile_path(@perfil), class: 'btn'
-  = link_to t('.destroy', default: t("helpers.links.destroy")), perfile_path(@perfile), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
+  = link_to t('.back', :default => t("helpers.links.back")), perfiles_path, class: 'btn btn-default btn-sm active'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_perfil_path(@perfil), class: 'btn btn-success btn-sm active'
