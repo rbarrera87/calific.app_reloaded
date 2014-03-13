@@ -1,6 +1,7 @@
 class IndicadoresController < ApplicationController
   before_action :set_indicador, only: [:show, :edit, :update, :destroy]
 
+
   # GET /indicadores
   # GET /indicadores.json
   def index
@@ -8,7 +9,7 @@ class IndicadoresController < ApplicationController
   end
 
   # GET /indicadores/1
-  # GET /indicadores/1.json
+  # GET / indicadores/1.json
   def show
   end
 
@@ -28,7 +29,7 @@ class IndicadoresController < ApplicationController
 
     respond_to do |format|
       if @indicador.save
-        format.html { redirect_to @indicador, notice: 'Indicadores was successfully created.' }
+        format.html { redirect_to @indicador, notice: 'Indicador was successfully created.' }
         format.json { render action: 'show', status: :created, location: @indicador }
       else
         format.html { render action: 'new' }

@@ -1,5 +1,6 @@
+CalificaMe::Application.routes.draw do
 
-CalificaMe::Application.routes.draw do  
+  resources :calificaciones
 
   devise_for :users
   resources :welcome
@@ -12,7 +13,7 @@ CalificaMe::Application.routes.draw do
   resources :dashboard
   resources :criterios
   resources :prestamo_libros
-  resources :tutor_grupos
+  resources :tutorias
   resources :indicadores
   resources :docentes
 

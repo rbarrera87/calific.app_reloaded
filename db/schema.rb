@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305155910) do
+ActiveRecord::Schema.define(version: 20140313004112) do
 
 
   create_table "asignaturas", force: true do |t|
@@ -22,15 +22,25 @@ ActiveRecord::Schema.define(version: 20140305155910) do
   end
 
   create_table "asistencias", force: true do |t|
-    t.boolean  "presente"
-    t.integer  "perfil_id",  null: false
-    t.integer  "grupo_id",   null: false
-    t.integer  "grado_id",   null: false
+    t.boolean  "presente",   default: true
+    t.integer  "perfil_id",                 null: false
+    t.integer  "grupo_id",                  null: false
+    t.integer  "grado_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "asistencias", ["grado_id", "grupo_id", "perfil_id"], name: "index_asistencias_on_grado_id_and_grupo_id_and_perfil_id", unique: true, using: :btree
+
+
+  create_table "calificaciones", force: true do |t|
+    t.string   "calificacion_ordinaria"
+    t.string   "calificacion_remedial"
+    t.string   "calificacion_extraordinaria"
+    t.string   "calificacion_final"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carrera_docentes", force: true do |t|
     t.integer  "carrera_id", null: false
@@ -60,48 +70,11 @@ ActiveRecord::Schema.define(version: 20140305155910) do
   create_table "criterio_indicadores", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.string   "estado"
+    t.boolean  "estado"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "datos", force: true do |t|
-    t.string   "nombre"
-    t.string   "apellido_paterno"
-    t.string   "apellido_materno"
-    t.string   "numero_control"
-    t.date     "fecha_nacimiento"
-    t.string   "estado_civil"
-    t.string   "sexo"
-    t.integer  "cp"
-    t.string   "curp"
-    t.string   "nss"
-    t.string   "rfc"
-    t.integer  "telefono"
-    t.integer  "celular"
-    t.string   "calle"
-    t.string   "numero_exterior"
-    t.string   "numero_interior"
-    t.string   "numero_departamento"
-    t.string   "referencias"
-    t.text     "comentarios"
-    t.string   "poblacion"
-    t.string   "estado"
-    t.string   "situacion"
-    t.string   "turno"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "docentes", force: true do |t|
-    t.integer  "perfil_id",  null: false
-    t.integer  "carrera_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "docentes", ["perfil_id", "carrera_id"], name: "index_docentes_on_perfil_id_and_carrera_id", unique: true, using: :btree
 
   create_table "grados", force: true do |t|
     t.string   "nombre"
@@ -181,6 +154,18 @@ ActiveRecord::Schema.define(version: 20140305155910) do
   end
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
+
+  create_table "tutorias", force: true do |t|
+    t.integer  "mes1"
+    t.integer  "mes2"
+    t.integer  "mes3"
+    t.integer  "mes4"
+    t.integer  "grado_id"
+    t.integer  "grupo_id"
+    t.integer  "perfil_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_asignaturas", force: true do |t|
     t.integer  "user_id"
