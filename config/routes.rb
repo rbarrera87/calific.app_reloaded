@@ -13,7 +13,7 @@ CalificaMe::Application.routes.draw do
   resources :dashboard
   resources :criterios
   resources :prestamo_libros
-  resources :tutor_grupos
+  resources :tutorias
   resources :indicadores
   resources :docentes
 
