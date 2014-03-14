@@ -69,6 +69,7 @@ class DocentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def docente_params
-      params[:docente]
+      params.require(:docente).permit(:perfil_id, :carrera_id)
+      #params.require(:criterio).permit(:nombre, :descripcion, :estado)
     end
 end

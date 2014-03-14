@@ -4,7 +4,7 @@ class Perfil < ActiveRecord::Base
   belongs_to :carrera
   belongs_to :grupo
   has_one :consejero
-  belongs_to :docente
+  has_many :docentes
   has_many :tutorias
 
   validates :fotografia_url, :numero_control, :fecha_nacimiento, :estado_civil, :sexo, :rfc, :curp, :calle,:poblacion,:estado, :situacion, :turno, presence: true

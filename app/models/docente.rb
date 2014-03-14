@@ -2,6 +2,7 @@ class Docente < ActiveRecord::Base
   self.table_name = "docentes"
   has_many :carrera_docentes
   has_many :carreras, through: :carrera_docentes
-  has_one :perfil
+  belongs_to :perfil
+  belongs_to :carrera
 
 end
