@@ -56,7 +56,7 @@ class AsistenciasController < ApplicationController
   def destroy
     @asistencia.destroy
     respond_to do |format|
-      format.html { redirect_to asistencias_index_url }
+      format.html { redirect_to asistencias_url }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class AsistenciasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asistencia_params
-      params.require(:asistencia).permit(:presente)
+      params.require(:asistencia).permit(:presente, :perfil_id,:grado_id, :grupo_id)
     end
 end

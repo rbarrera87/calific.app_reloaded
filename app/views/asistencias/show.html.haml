@@ -1,9 +1,26 @@
-%p#notice= notice
+- model_class = Asistencia
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Presente:
+  %strong= model_class.human_attribute_name(:perfil_id) + ':'
+  %br
+  = @asistencia.perfil.nombre
+%p
+  %strong= model_class.human_attribute_name(:grado_id) + ':'
+  %br
+  = @asistencia.perfil.grado.nombre
+%p
+  %strong= model_class.human_attribute_name(:grupo_id) + ':'
+  %br
+  = @asistencia.perfil.grupo.nombre
+%p
+  %strong= model_class.human_attribute_name(:presente) + ':'
+  %br
   = @asistencia.presente
 
-= link_to 'Edit', edit_asistencia_path(@asistencia)
-\|
-= link_to 'Back', asistencias_index_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), asistencias_path, class: 'btn btn-default btn-sm active'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_asistencia_path(@asistencia), class: 'btn btn-success btn-sm active'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), asistencia_path(@asistencia), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-sm active'
+  = link_to t('.new', default: t("helpers.links.new")), new_asistencia_path, class: 'btn btn-info btn-sm active'

@@ -6,6 +6,7 @@ class Perfil < ActiveRecord::Base
   belongs_to :grado
   has_one :consejero
   belongs_to :docente
+  has_many :asistencias
   has_many :tutorias
 
     validates :numero_control, :estado_civil, :sexo,
