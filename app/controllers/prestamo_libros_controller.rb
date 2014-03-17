@@ -69,6 +69,6 @@ class PrestamoLibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_libro_params
-      params[:prestamo_libro]
+      params.require(:asignatura).permit(:multa_dia, :comentarios, :perfil_id, :libro_id)
     end
 end
