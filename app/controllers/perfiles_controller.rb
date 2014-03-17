@@ -6,7 +6,6 @@ class PerfilesController < ApplicationController
   end
 
   def show
-    render 'show'
   end
 
   def new

@@ -9,8 +9,9 @@ class Perfil < ActiveRecord::Base
   has_many :asistencias
   has_many :tutorias
 
-  validates :fotografia_url, :numero_control, :fecha_nacimiento, :estado_civil, :sexo, :rfc, :curp, :calle,:poblacion,:estado, :situacion, :turno, presence: true
-  validates :cp, :nss,  numericality: true
-  validates :nombre, :apellido_materno, :apellido_materno, length: { maximum: 30 }
+    validates :numero_control, :estado_civil, :sexo,
+	           :rfc, :curp, :calle,:poblacion, :estado, :situacion, :turno, presence: true
+    validates :cp, :nss,  numericality: true
+    validates :nombre, :apellido_materno, :apellido_materno, length: { maximum: 30 }
 
 end
