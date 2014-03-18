@@ -5,11 +5,11 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:multa_dia)
+      %th= model_class.human_attribute_name(:multa_día)
       %th= model_class.human_attribute_name(:comentarios)
-      %th= model_class.human_attribute_name(:perfil_id)
-      %th= model_class.human_attribute_name(:libro_id)
-      %th= model_class.human_attribute_name(:created_at)
+      %th= model_class.human_attribute_name(:alumno)
+      %th= model_class.human_attribute_name(:libro)
+      %th= model_class.human_attribute_name(:fecha_de_prestamo)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @prestamo_libros.each do |prestamo_libro|
@@ -17,11 +17,11 @@
         %td= link_to prestamo_libro.id, prestamo_libro_path(prestamo_libro)
         %td= prestamo_libro.multa_dia
         %td= prestamo_libro.comentarios
-        %td= prestamo_libro.perfil_id
-        %td= prestamo_libro.libro_id
+        %td= prestamo_libro.perfil.nombre
+        %td= prestamo_libro.libro.nombre
         %td= prestamo_libro.created_at
         %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_prestamo_libro_path(prestamo_libro), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), prestamo_libro_path(prestamo_libro), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+          = link_to t('.edit', default: t("helpers.links.edit")), edit_prestamo_libro_path(prestamo_libro), class: 'btn btn-mini btn-sm active'
+          = link_to t('.destroy', default: t("helpers.links.destroy")), prestamo_libro_path(prestamo_libro), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger btn-sm active'
 
-= link_to t('.new', :default => t("helpers.links.new")), new_prestamo_libro_path, :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), new_prestamo_libro_path, :class => 'btn btn-primary btn-sm active'
