@@ -1,6 +1,6 @@
 class PrestamoLibrosController < ApplicationController
   before_action :set_prestamo_libro, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /prestamo_libros
   # GET /prestamo_libros.json
   def index
@@ -69,6 +69,6 @@ class PrestamoLibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_libro_params
-      params.require(:asignatura).permit(:multa_dia, :comentarios, :perfil_id, :libro_id)
+      params.require(:prestamo_libro).permit(:multa_dia, :comentarios, :perfil_id, :libro_id)
     end
 end

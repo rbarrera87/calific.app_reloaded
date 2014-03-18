@@ -1,4 +1,4 @@
-= simple_form_for @prestamo_libro, :html => { :class => 'form-horizontal' } do |f|
+= simple_form_for @prestamo_libro, url: prestamo_libro_path(@prestamo_libro), :html => { :class => 'form-horizontal' } do |f|
   = f.input :multa_dia
   = f.input :comentarios
   = f.input :perfil_id

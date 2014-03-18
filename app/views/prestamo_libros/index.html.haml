@@ -19,7 +19,7 @@
         %td= prestamo_libro.comentarios
         %td= prestamo_libro.perfil_id
         %td= prestamo_libro.libro_id
-        %td=l prestamo_libro.created_at
+        %td= prestamo_libro.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_prestamo_libro_path(prestamo_libro), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), prestamo_libro_path(prestamo_libro), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
