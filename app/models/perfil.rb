@@ -8,6 +8,7 @@ class Perfil < ActiveRecord::Base
   belongs_to :docente
   has_many :asistencias
   has_many :tutorias
+  has_many :prestamo_libros
 
     validates :numero_control, :estado_civil, :sexo,
 	           :rfc, :curp, :calle,:poblacion, :estado, :situacion, :turno, presence: true

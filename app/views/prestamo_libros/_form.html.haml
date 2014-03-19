@@ -1,7 +1,12 @@
-= simple_form_for(@prestamo_libro) do |f|
-  = f.error_notification
-
-  .form-inputs
-
+= simple_form_for @prestamo_libro, url: prestamo_libro_path(@prestamo_libro), html: { class: 'form-horizontal' } do |f|
+  = f.input :multa_dia, label: 'Multa diaria:'
+  = f.input :comentarios, label: 'Comentarios:'
+  = f.label 'Nombre del alumno:'
+  = f.collection_select :perfil_id, Perfil.all, :id, :nombre
+  %br/
+  %br/
+  = f.label 'Nombre del libro:'
+  = f.collection_select :libro_id, Libro.all, :id, :nombre
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), prestamo_libros_path, class: 'btn'

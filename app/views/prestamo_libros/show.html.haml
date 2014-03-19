@@ -1,6 +1,26 @@
-%p#notice= notice
+- model_class = PrestamoLibro
+.page-header
+  %h1=t '.title', default: model_class.model_name.human.titleize
 
+%p
+  %strong= model_class.human_attribute_name(:multa_dia) + ':'
+  %br
+  = @prestamo_libro.multa_dia
+%p
+  %strong= model_class.human_attribute_name(:comentarios) + ':'
+  %br
+  = @prestamo_libro.comentarios
+%p
+  %strong= model_class.human_attribute_name(:perfil_id) + ':'
+  %br
+  = @prestamo_libro.perfil.nombre
+%p
+  %strong= model_class.human_attribute_name(:libro_id) + ':'
+  %br
+  = @prestamo_libro.libro.nombre
 
-= link_to 'Edit', edit_prestamo_libro_path(@prestamo_libro)
-\|
-= link_to 'Back', prestamo_libros_path
+.form-actions
+  = link_to t('.back', default: t("helpers.links.back")), prestamo_libros_path, class: 'btn btn-default btn-sm active'
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_prestamo_libro_path(@prestamo_libro), class: 'btn btn-success btn-sm active'
+  = link_to t('.destroy', default: t("helpers.links.destroy")), prestamo_libro_path(@prestamo_libro), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-sm active'
+  = link_to t('.new', default: t("helpers.links.new")), new_prestamo_libro_path, class: 'btn btn-info btn-sm active'
