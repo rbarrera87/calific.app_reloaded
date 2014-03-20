@@ -1,3 +1,4 @@
+require 'role_model'  
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -9,6 +10,16 @@ class User < ActiveRecord::Base
   has_many :asignaturas, through: :user_asignaturas
   has_many :user_asignaturas
   has_one :perfil
+
+  include RoleModel
+  
+  # optionally set the integer attribute to store the roles in,
+  # :roles_mask is the default
+  roles_attribute :roles_mask
+ 
+  # declare the valid roles -- do not change the order if you add more
+  # roles later, always append them at the end!
+  roles :admin
 
   #attr_accessible :roles
 
