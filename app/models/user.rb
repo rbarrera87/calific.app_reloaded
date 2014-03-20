@@ -19,14 +19,19 @@ class User < ActiveRecord::Base
  
   # declare the valid roles -- do not change the order if you add more
   # roles later, always append them at the end!
-  roles :admin
+ 
 
   #attr_accessible :roles
 
   #Roles logic Many roles per user, for more information go to http://bit.ly/IAojjB
   #############################################################################
+  roles :admin
 
-  ROLES = %w[admin moderator author banned]
+  ROLES = %w[admin alumno docente director]
+
+  def is?(role)
+    roles.include?(role.to_s)
+  end
 
   def roles=(roles)
 	  self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
@@ -41,9 +46,9 @@ class User < ActiveRecord::Base
   private
     def crear_perfil
       perfil = self.build_perfil
-      perfil.grupo_id = 0
-      perfil.carrera_id = 0
-      perfil.grado_id = 0
+      perfil.grupo_id = 5
+      perfil.carrera_id = 5
+      perfil.grado_id = 5
       perfil.save(validate:false)
     end
 
