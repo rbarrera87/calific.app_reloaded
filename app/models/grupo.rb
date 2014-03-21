@@ -5,5 +5,8 @@ class Grupo < ActiveRecord::Base
   has_many :grados, through: :rel_grados_grupos
   has_one :consejero
 
+  self.all.each do |grupo|
+  scope grupo.nombre, ->{ where(id:  grupo.id) }
+end
   validates_presence_of :nombre
 end

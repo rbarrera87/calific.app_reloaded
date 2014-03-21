@@ -4,5 +4,7 @@ class Carrera < ActiveRecord::Base
   has_many :carrera_docentes
   has_many :docentes, through: :carrera_docentes
   validates_presence_of :nombre
-
+  self.all.each do |carrera|
+  scope carrera.nombre, ->{ where(id: carrera.id) }
+end
 end

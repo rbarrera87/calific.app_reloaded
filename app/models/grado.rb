@@ -5,5 +5,7 @@ class Grado < ActiveRecord::Base
   has_one :consejero
   has_many :perfiles
   validates_presence_of :nombre
-
+  self.all.each do |grado|
+  scope grado.nombre, ->{ where(id: grado.id) }
+end
 end

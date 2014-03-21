@@ -19,7 +19,7 @@ class CarrerasController < ApplicationController
 
   def create
     @carrera = Carrera.new(carrera_params)
-    
+
     respond_to do |format|
       if @carrera.save
         format.html { redirect_to @carrera, notice: 'La carrera fue agregada.' }
@@ -39,7 +39,7 @@ class CarrerasController < ApplicationController
       else
         format.html { render action: 'edit'}
         format.json { render json: @carrera.errors, status: :unprocessable_entity}
-      end       
+      end
     end
   end
 
