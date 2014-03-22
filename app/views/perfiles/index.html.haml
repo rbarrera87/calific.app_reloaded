@@ -8,12 +8,14 @@
       %th= model_class.human_attribute_name(:nombre)
       %th= model_class.human_attribute_name(:apellido_paterno)
       %th= model_class.human_attribute_name(:apellido_materno)
-      %th=t '.actions', :default => t("helpers.actions")
+      - if can? :update, @perfi_
+        %th=t '.actions', :default => t("helpers.actions")
   %tbody
     %tr
       %td= link_to @perfil.id, perfil_path(@perfil)
       %td= @perfil.nombre
       %td= @perfil.apellido_paterno
       %td= @perfil.apellido_materno
-      %td
-        = link_to t('.edit', :default => t("helpers.links.edit")), edit_perfil_path(@perfil), class: 'btn btn-success btn-mini btn-sm active'
+      - if can? :update, @perfil_
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_perfil_path(@perfil), class: 'btn btn-success btn-mini btn-sm active'

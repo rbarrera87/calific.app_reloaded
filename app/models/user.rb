@@ -25,9 +25,9 @@ class User < ActiveRecord::Base
 
   #Roles logic Many roles per user, for more information go to http://bit.ly/IAojjB
   #############################################################################
-  roles :admin
+  roles :admin, :alumno, :docente, :director, :bibliotecario
 
-  ROLES = %w[admin alumno docente director]
+  ROLES = %w[admin alumno docente director bibliotecario]
 
   def is?(role)
     roles.include?(role.to_s)

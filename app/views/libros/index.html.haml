@@ -9,7 +9,8 @@
       %th= model_class.human_attribute_name(:Editorial)
       %th= model_class.human_attribute_name(:Autor)
       %th= model_class.human_attribute_name(:Categoría)
-      %th=t '.actions', :default => t("helpers.actions")
+      - if can? :manage, @Libro_
+        %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @libros.each do |libro|
       %tr
@@ -18,9 +19,10 @@
         %td= libro.editorial
         %td= libro.autor
         %td= libro.categoria
-        %td
-          = link_to t('.edit', default:t("helpers.links.edit")), edit_libro_path(libro), class: 'btn btn-success btn-mini btn-sm active'
-          = link_to t('.destroy', default: t("helpers.links.destroy")), libro_path(libro), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-sm btn-mini active'
-
-= link_to t('.new', default: t("helpers.links.new")), new_libro_path, class: 'btn btn-info btn-sm active'
+        - if can? :manage, @Libro_
+          %td
+            = link_to t('.edit', default:t("helpers.links.edit")), edit_libro_path(libro), class: 'btn btn-success btn-mini btn-sm active'
+            = link_to t('.destroy', default: t("helpers.links.destroy")), libro_path(libro), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-sm btn-mini active'
+- if can? :manage, @Libro_
+  = link_to t('.new', default: t("helpers.links.new")), new_libro_path, class: 'btn btn-info btn-sm active'
 

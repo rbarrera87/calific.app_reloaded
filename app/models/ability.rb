@@ -6,7 +6,26 @@ class Ability
     #
 
     #   user ||= User.new # guest user (not logged in)
-        can :manage, :all if user.is? :admin
+    if user.is? :admin
+           can :manage, :all
+    #       cannot [:create], @Asignatura
+    elsif user.is? :director
+      can [:create, :update, :create], @Tutoria
+      can :manage, @Criterio
+      can :manage, @Indicador
+      can [:update, :destroy, :create], @Consejero  
+      cannot :manage, @Calificacion_
+      can :update, @Perfil_
+    elsif user.is? :docente
+      can :manage, @Calificacion_
+      can [:update, :create], @Asistencia
+      can :update, @Perfil_
+    elsif user.is? :bibliotecario
+      can :manage, @Libro_
+      can :manage, @PrestamoLibro_
+      cannot :manage, @Calificacion_
+      can :update, @Perfil_
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
