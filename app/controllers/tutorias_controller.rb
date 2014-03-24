@@ -1,5 +1,6 @@
 class TutoriasController < ApplicationController
   before_action :set_tutoria, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   # GET /tutorias
   # GET /tutorias.json
   def index

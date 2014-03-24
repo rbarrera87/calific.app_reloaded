@@ -1,5 +1,5 @@
 class PerfilesController < ApplicationController
-   before_action :set_perfil, only: [:show, :edit, :update, :destroy]
+  before_action :set_perfil, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   def index
     @perfil = current_user.perfil

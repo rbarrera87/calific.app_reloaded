@@ -1,6 +1,7 @@
 class GruposController < ApplicationController
   before_action :set_grupo, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  load_and_authorize_resource 
   layout 'application'
 
   def index
