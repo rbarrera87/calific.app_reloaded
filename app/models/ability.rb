@@ -10,20 +10,20 @@ class Ability
            can :manage, :all
     #       cannot [:create], @Asignatura
     elsif user.is? :director
-      can [:create, :update, :create], @Tutoria
-      can :manage, @Criterio
-      can :manage, @Indicador
-      can [:update, :destroy, :create], @Consejero  
-      cannot :manage, @Calificacion_
+      can :manage, [@Indicador, @Consejero, @Criterio, @Tutoria]
+      cannot :manage, [@Calificacion, @Carrera, @libro]
       can :update, @Perfil_
     elsif user.is? :docente
-      can :manage, @Calificacion_
-      can [:update, :create], @Asistencia
+      can :manage, @Calificacion
+      can :create, @Asistencia
       can :update, @Perfil_
+      cannot :manage, [@Carrera, @Criterio, @Indicador, @Libro]
     elsif user.is? :bibliotecario
-      can :manage, @Libro_
-      can :manage, @PrestamoLibro_
-      cannot :manage, @Calificacion_
+      can :manage, [@Libro, @Prestamo]
+      cannot :manage, [@Calificacion_, @Asignatura, @Asistencia, @Carrera, @Criterio, @Indicador]
+      can :update, @Perfil_
+    elsif user.is? :alumno
+      cannot :manage, [@Calificacion_, @Asignatura, @Asistencia, @Carrera, @Criterio, @Indicador]
       can :update, @Perfil_
     end
     #
