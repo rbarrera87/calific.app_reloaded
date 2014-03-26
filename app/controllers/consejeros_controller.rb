@@ -1,7 +1,7 @@
 class ConsejerosController < ApplicationController
   before_action :set_consejero, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  load_and_authorize_resource 
+  load_and_authorize_resource
   # GET /consejeros
   # GET /consejeros.json
   def index
