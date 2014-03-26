@@ -19,24 +19,20 @@
               %a.brand
                 Calific.App
               .nav-collapse
+                %ul.nav
+                  %li= link_to t('.link', default: t("helpers.links.tutories")), tutorias_path
+                  %li= link_to t('.link', default: t("helpers.links.criteria")), criterios_path
+                  %li= link_to t('.link', default: t("helpers.links.indicators")), indicadores_path
+                  %li= link_to t('.link', default: t("helpers.links.conselour")), consejeros_path
                 %li.dropdown.pull-right
-                  %a.dropdown-toggle{"data-toggle" => "dropdown"}
-                    =t '.title', default: [:'helpers.titles.options'] 
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    = t '.title', default: [:'helpers.titles.opciones']
                     %strong.caret
                   %ul.dropdown-menu
                     %li
-                      %a{href: "/perfiles"}
-                        =t '.title', default: [:'helpers.titles.profile'] 
+                      %a{href: "/perfiles"}= t '.title', default: [:'helpers.titles.profile']
                     %li
                       = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
       .row
-        .span9
-          %h4 
-            = yield
-        .span3
-          - user_signed_in?
-          %h4=t '.title', default: [:'helpers.titles.welcome']
-          = current_user.email
-          %p
-          = link_to t('.link', default: t("helpers.links.edit_account")), edit_user_registration_path
-    
+        .span12
+          = yield
