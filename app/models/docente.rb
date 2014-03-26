@@ -3,6 +3,6 @@ class Docente < ActiveRecord::Base
   has_many :carrera_docentes
   has_many :carreras, through: :carrera_docentes
   belongs_to :perfil
-  belongs_to :carrera
+
 
 end
