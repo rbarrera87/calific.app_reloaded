@@ -9,7 +9,7 @@
       %th= model_class.human_attribute_name(:Clave)
       %th= model_class.human_attribute_name(:Nombre)
       %th= model_class.human_attribute_name(:Descripción)
-      - if can? :manage, @grado
+      - if can? :manage, Grado
         %th=t '.actions', default: t("helpers.actions")
   %tbody
     - @grados.each do |grado|
@@ -17,9 +17,9 @@
         %td= link_to grado.id, grado_path(grado)
         %td= grado.nombre
         %td= grado.descripcion
-        - if can? :manage, @grado
+        - if can? :manage, Grado
           %td
             = link_to t('.edit', default: t("helpers.links.edit")), edit_grado_path(grado), class: 'btn btn-mini'
             = link_to t('.destroy', default: t("helpers.links.destroy")), grado_path(grado), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.Confirmar", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
-- if can? :manage, @grado
+- if can? :manage, Grado
   = link_to t('.new', default: t("helpers.links.new")), new_grado_path, class: 'btn btn-primary'
