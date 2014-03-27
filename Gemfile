@@ -13,6 +13,9 @@ gem "mysql2", "0.3.14"
 #Devise
 gem "devise", "~> 3.2.3"
 
+#RoleModel
+gem 'role_model', '~> 0.8.1'
+
 #bootstrap
 gem "twitter-bootstrap-rails", "2.2.8"
 gem "haml-rails"

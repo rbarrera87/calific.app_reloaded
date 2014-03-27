@@ -1,6 +1,7 @@
 class CalificacionesController < ApplicationController
   before_action :set_calificacion, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /calificaciones
   # GET /calificaciones.json
   def index
@@ -15,6 +16,7 @@ class CalificacionesController < ApplicationController
   # GET /calificaciones/new
   def new
     @calificacion = Calificacion.new
+
   end
 
   # GET /calificaciones/1/edit

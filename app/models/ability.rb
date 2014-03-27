@@ -1,15 +1,29 @@
-class Ability
+class Ability < ActiveRecord::Base
   include CanCan::Ability
 
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
+    if user.is? :admin
+     can :manage, :all
+    elsif user.is? :director
+      can :manage, [Indicador, Consejero, Criterio, Tutoria]
+      #cannot :manage, [Calificacion, Carrera, libro, Grado, Grupo]
+      can :update, Perfil
+    elsif user.is? :docente
+      can :manage, [Calificacion, Asistencia]
+        #no puede actualizar su perfil
+      can :update, Perfil
+      #cannot :manage, [Carrera, Criterio, Indicador, Libro]
+    elsif user.is? :bibliotecario
+      can :manage, [Libro, PrestamoLibro]
+      #cannot :manage, [Calificacion, Asignatura, Asistencia, Carrera, Criterio, Indicador]
+      #no puede actualizar su perfil
+      can :update, Perfil
+    else user.is? :alumno
+      #cannot :manage, [Calificacion, Asignatura, Asistencia, Carrera, Criterio, Indicador]
+      can :update, Perfil
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
