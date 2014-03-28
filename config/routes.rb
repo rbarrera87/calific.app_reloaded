@@ -1,5 +1,6 @@
 CalificaMe::Application.routes.draw do
 
+  get "egresados/index"
   resources :vinculaciones
   resources :empresas
   resources :libros
