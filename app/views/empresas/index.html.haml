@@ -1,33 +1,35 @@
-%h1 Listing empresas
-
-%table
-  %tr
-    %th Nombre
-    %th Direcion
-    %th Numero
-    %th Telefono
-    %th Razon social
-    %th Estado
-    %th Municipio
-    %th Descripcion
-    %th
-    %th
-    %th
-
-  - @empresas.each do |empresa|
+- model_class = Empresa
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
     %tr
-      %td= empresa.nombre
-      %td= empresa.direcion
-      %td= empresa.numero
-      %td= empresa.telefono
-      %td= empresa.razon_social
-      %td= empresa.estado
-      %td= empresa.municipio
-      %td= empresa.descripcion
-      %td= link_to 'Show', empresa
-      %td= link_to 'Edit', edit_empresa_path(empresa)
-      %td= link_to 'Destroy', empresa, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:nombre)
+      %th= model_class.human_attribute_name(:direcion)
+      %th= model_class.human_attribute_name(:numero)
+      %th= model_class.human_attribute_name(:telefono)
+      %th= model_class.human_attribute_name(:razon_social)
+      %th= model_class.human_attribute_name(:estado)
+      %th= model_class.human_attribute_name(:municipio)
+      %th= model_class.human_attribute_name(:descripcion)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @empresas.each do |empresa|
+      %tr
+        %td= link_to empresa.id, empresa_path(empresa)
+        %td= empresa.nombre
+        %td= empresa.direcion
+        %td= empresa.numero
+        %td= empresa.telefono
+        %td= empresa.razon_social
+        %td= empresa.estado
+        %td= empresa.municipio
+        %td= empresa.descripcion
+        %td= empresa.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_empresa_path(empresa), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), empresa_path(empresa), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Empresa', new_empresa_path
+= link_to t('.new', :default => t("helpers.links.new")), new_empresa_path, :class => 'btn btn-primary'

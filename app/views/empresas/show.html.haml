@@ -1,30 +1,41 @@
-%p#notice= notice
+- model_class = Empresa
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Nombre:
+  %strong= model_class.human_attribute_name(:nombre) + ':'
+  %br
   = @empresa.nombre
 %p
-  %b Direcion:
+  %strong= model_class.human_attribute_name(:direcion) + ':'
+  %br
   = @empresa.direcion
 %p
-  %b Numero:
+  %strong= model_class.human_attribute_name(:numero) + ':'
+  %br
   = @empresa.numero
 %p
-  %b Telefono:
+  %strong= model_class.human_attribute_name(:telefono) + ':'
+  %br
   = @empresa.telefono
 %p
-  %b Razon social:
+  %strong= model_class.human_attribute_name(:razon_social) + ':'
+  %br
   = @empresa.razon_social
 %p
-  %b Estado:
+  %strong= model_class.human_attribute_name(:estado) + ':'
+  %br
   = @empresa.estado
 %p
-  %b Municipio:
+  %strong= model_class.human_attribute_name(:municipio) + ':'
+  %br
   = @empresa.municipio
 %p
-  %b Descripcion:
+  %strong= model_class.human_attribute_name(:descripcion) + ':'
+  %br
   = @empresa.descripcion
 
-= link_to 'Edit', edit_empresa_path(@empresa)
-\|
-= link_to 'Back', empresas_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), empresas_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_empresa_path(@empresa), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), empresa_path(@empresa), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
