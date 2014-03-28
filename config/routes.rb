@@ -1,13 +1,9 @@
 CalificaMe::Application.routes.draw do
 
   resources :vinculaciones
-
   resources :empresas
-
   resources :libros
-
   resources :calificaciones
-
   devise_for :users
   resources :welcome
   resources :asignaturas
