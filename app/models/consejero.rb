@@ -2,8 +2,8 @@ class Consejero < ActiveRecord::Base
 
 	self.table_name = "consejeros"
 
-	belongs_to :carrera
-	belongs_to :grado
-	belongs_to :grupo
-	belongs_to :perfil
+	belongs_to :carrera, class_name: Carrera
+	belongs_to :grado, class_name: Grado
+	belongs_to :grupo, class_name: Grupo
+	belongs_to :perfil, class_name: Perfil
 end
