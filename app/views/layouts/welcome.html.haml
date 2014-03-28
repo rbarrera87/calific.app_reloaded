@@ -19,24 +19,84 @@
               %a.brand
                 Calific.App
               .nav-collapse
-                %li.dropdown.pull-right
-                  %a.dropdown-toggle{"data-toggle" => "dropdown"}
-                    =t '.title', default: [:'helpers.titles.options'] 
-                    %strong.caret
-                  %ul.dropdown-menu
-                    %li
-                      %a{href: "/perfiles"}
-                        =t '.title', default: [:'helpers.titles.profile'] 
-                    %li
-                      = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
+                %ul.nav.nav-pills
+                  %li.dropdown.pull-center
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      Academia
+                      %strong.caret
+                    %ul.dropdown-menu
+                      - if can? :manage, Consejero
+                        %li
+                          %a{href: "/consejeros"} Asignacion de tutores
+                      - if can? [:read, :manage], Calificacion
+                        %li
+                          %a{href: "/calificaciones"} Calificaciones
+                      / - if can? :manage, Calificacion
+                      /   %li
+                      /     %a{href: "/calificaciones"} Calificaciones
+                      - if can? :manage, Tutoria
+                        %li
+                          %a{href: "/tutorias"} Evaluacion al programa de tutorias
+                      %li.divider
+                      %li
+                        %a{href: "#"} Acciones remediales
+                      - if can? :manage, Criterio
+                        %li
+                          %a{href: "/criterios"} Criterios de evaluacion
+                      - if can? :manage, Indicador
+                        %li
+                          %a{href: "/indicadores"} Indicadores
+                  %li.dropdown.pull-center
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      Reportes
+                      %strong.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{href: "#"} Aspirantes
+                      %li.divider
+                      %li
+                        %a{href: "#"} Alumnos
+                      %li
+                        %a{href: "#"} Optativas
+                      %li
+                        %a{href: "#"} Indicadores
+                      %li
+                        %a{href: "#"} Reportes de padron de empresas
+                  %li.dropdown.pull-center
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      Vinculacion
+                      %strong.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{href: "#"} Reporte de visita a empresa
+                      %li
+                        %a{href: "#"} Solicitud de la visita a empresa
+                      %li
+                        %a{href: "#"} Validacion del registro de estadia
+                  %li.dropdown.pull-center
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      Biblioteca
+                      %strong.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{href: "/libros"} Lista de libros
+                      %li
+                        %a{href: "/prestamo_libros"} Prestamo de libros
+                  %li.dropdown.pull-center
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                      Opciones
+                      %strong.caret
+                    %ul.dropdown-menu
+                      %li
+                        %a{href: "/perfiles"} Ver perfil
+                      %li.divider
+                      %li
+                        %a{href: "/users/edit"} Cambiar contraseNa
+                      %li.divider
+                      %li
+                        = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
       .row
-        .span9
+        .span12
           %h4 
             = yield
-        .span3
-          - user_signed_in?
-          %h4=t '.title', default: [:'helpers.titles.welcome']
-          = current_user.email
-          %p
-          = link_to t('.link', default: t("helpers.links.edit_account")), edit_user_registration_path
     

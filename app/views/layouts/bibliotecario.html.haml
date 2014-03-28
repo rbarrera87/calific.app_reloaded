@@ -31,6 +31,15 @@
                       %a{href: "/perfiles"}= t '.title', default: [:'helpers.titles.profile']
                     %li
                       = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
+                %li.dropdown.pull-right
+                  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                    = t '.title', default: [:'helpers.titles.opciones']
+                    %strong.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{href: "/perfiles"}= t '.title', default: [:'helpers.titles.profile']
+                    %li
+                      = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
       .row
         .span12
           = yield

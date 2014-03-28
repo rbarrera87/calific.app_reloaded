@@ -1,6 +1,7 @@
 class DocentesController < ApplicationController
   before_action :set_docente, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  #load_and_authorize_resource 
   # GET /docentes
   # GET /docentes.json
   def index

@@ -1,5 +1,7 @@
 class TutoriasController < ApplicationController
   before_action :set_tutoria, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  load_and_authorize_resource 
   # GET /tutorias
   # GET /tutorias.json
   def index
@@ -23,6 +25,8 @@ class TutoriasController < ApplicationController
   # POST /tutorias
   # POST /tutorias.json
   def create
+    puts "============================================="
+    ap tutoria_params
     @tutoria = Tutoria.new(tutoria_params)
 
     respond_to do |format|
