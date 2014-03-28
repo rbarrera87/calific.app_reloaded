@@ -1,0 +1,15 @@
+= simple_form_for(@empresa) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :nombre
+    = f.input :direcion
+    = f.input :numero
+    = f.input :telefono
+    = f.input :razon_social
+    = f.input :estado
+    = f.input :municipio
+    = f.input :descripcion
+
+  .form-actions
+    = f.button :submit

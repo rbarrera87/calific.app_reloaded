@@ -1,5 +1,7 @@
 CalificaMe::Application.routes.draw do
 
+  resources :empresas
+
   resources :libros
 
   resources :calificaciones

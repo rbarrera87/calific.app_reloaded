@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @empresa.nombre
+%p
+  %b Direcion:
+  = @empresa.direcion
+%p
+  %b Numero:
+  = @empresa.numero
+%p
+  %b Telefono:
+  = @empresa.telefono
+%p
+  %b Razon social:
+  = @empresa.razon_social
+%p
+  %b Estado:
+  = @empresa.estado
+%p
+  %b Municipio:
+  = @empresa.municipio
+%p
+  %b Descripcion:
+  = @empresa.descripcion
+
+= link_to 'Edit', edit_empresa_path(@empresa)
+\|
+= link_to 'Back', empresas_path

@@ -1,0 +1,33 @@
+%h1 Listing empresas
+
+%table
+  %tr
+    %th Nombre
+    %th Direcion
+    %th Numero
+    %th Telefono
+    %th Razon social
+    %th Estado
+    %th Municipio
+    %th Descripcion
+    %th
+    %th
+    %th
+
+  - @empresas.each do |empresa|
+    %tr
+      %td= empresa.nombre
+      %td= empresa.direcion
+      %td= empresa.numero
+      %td= empresa.telefono
+      %td= empresa.razon_social
+      %td= empresa.estado
+      %td= empresa.municipio
+      %td= empresa.descripcion
+      %td= link_to 'Show', empresa
+      %td= link_to 'Edit', edit_empresa_path(empresa)
+      %td= link_to 'Destroy', empresa, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Empresa', new_empresa_path
