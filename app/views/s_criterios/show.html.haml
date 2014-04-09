@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @s_criterio.nombre
+%p
+  %b Porcentaje:
+  = @s_criterio.porcentaje
+%p
+  %b Rubro uno:
+  = @s_criterio.rubro_uno
+%p
+  %b Rubro dos:
+  = @s_criterio.rubro_dos
+%p
+  %b Rubro tres:
+  = @s_criterio.rubro_tres
+%p
+  %b Type:
+  = @s_criterio.type
+
+= link_to 'Edit', edit_s_criterio_path(@s_criterio)
+\|
+= link_to 'Back', s_criterios_path
