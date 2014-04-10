@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.datetime "updated_at"
   end
 
+  create_table "docentes", force: true do |t|
+    t.integer  "perfil_id",  null: false
+    t.integer  "carrera_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "docentes", ["perfil_id", "carrera_id"], name: "index_docentes_on_perfil_id_and_carrera_id", unique: true, using: :btree
+
   create_table "grados", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
