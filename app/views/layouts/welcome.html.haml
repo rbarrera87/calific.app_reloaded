@@ -27,25 +27,22 @@
                     %ul.dropdown-menu
                       - if can? :manage, Consejero
                         %li
-                          %a{href: "/consejeros"} Asignacion de tutores
-                      - if can? [:read, :manage], Calificacion
+                          %a{href: "/consejeros"} Asignación de tutores
+                      - if can? :read, Calificacion
                         %li
                           %a{href: "/calificaciones"} Calificaciones
                       / - if can? :manage, Calificacion
                       /   %li
                       /     %a{href: "/calificaciones"} Calificaciones
+                      - if can? :manage, Asistencia
+                        %li
+                          %a{href: "/asistencias"} Captura de asistencias
                       - if can? :manage, Tutoria
                         %li
-                          %a{href: "/tutorias"} Evaluacion al programa de tutorias
-                      %li.divider
-                      %li
-                        %a{href: "#"} Acciones remediales
+                          %a{href: "/tutorias"} Captura de tutorias por mes
                       - if can? :manage, Criterio
                         %li
                           %a{href: "/criterios"} Criterios de evaluacion
-                      - if can? :manage, Indicador
-                        %li
-                          %a{href: "/indicadores"} Indicadores
                   %li.dropdown.pull-center
                     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                       Reportes
@@ -61,10 +58,10 @@
                       %li
                         %a{href: "#"} Indicadores
                       %li
-                        %a{href: "#"} Reportes de padron de empresas
+                        %a{href: "#"} Reportes de padrón de empresas
                   %li.dropdown.pull-center
                     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                      Vinculacion
+                      Vinculación
                       %strong.caret
                     %ul.dropdown-menu
                       %li
@@ -72,29 +69,45 @@
                       %li
                         %a{href: "#"} Solicitud de la visita a empresa
                       %li
-                        %a{href: "#"} Validacion del registro de estadia
-                  %li.dropdown.pull-center
-                    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                      Biblioteca
-                      %strong.caret
-                    %ul.dropdown-menu
-                      %li
-                        %a{href: "/libros"} Lista de libros
-                      %li
-                        %a{href: "/prestamo_libros"} Prestamo de libros
+                        %a{href: "#"} Validación del registro de estadía
+                  - if can? :manage, Libro
+                    %li.dropdown.pull-center
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                        Biblioteca
+                        %strong.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{href: "/libros"} Lista de libros
+                        %li
+                          %a{href: "/prestamo_libros"} Préstamo de libros
+                  - if can? :manage, Carrera
+                    %li.dropdown.pull-center
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                        Administrador
+                        %strong.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{href: "/carreras"} Carreras
+                        %li
+                          %a{href: "/grados"} Grados
+                        %li
+                          %a{href: "/grupos"} Grupos
                   %li.dropdown.pull-center
                     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                       Opciones
                       %strong.caret
                     %ul.dropdown-menu
-                      %li
-                        %a{href: "/perfiles"} Ver perfil
-                      %li.divider
-                      %li
-                        %a{href: "/users/edit"} Cambiar contraseNa
+                      - if can? :update, Perfil
+                        %li
+                          %a{href: "/perfiles"} Ver perfil
+                        %li.divider
+                        %li
+                          %a{href: "/users/edit"} Cambiar contraseña
                       %li.divider
                       %li
                         = link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete
+      %p.alert= alert
+      %p.notice= notice
       .row
         .span12
           %h4 
