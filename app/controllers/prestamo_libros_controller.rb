@@ -1,7 +1,9 @@
 class PrestamoLibrosController < ApplicationController
   before_action :set_prestamo_libro, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  #load_and_authorize_resource 
+
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
   # GET /prestamo_libros
   # GET /prestamo_libros.json
   def index

@@ -1,7 +1,8 @@
 class CriteriosController < ApplicationController
   before_action :set_criterio, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  #load_and_authorize_resource 
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
   # GET /criterios
   # GET /criterios.json
   def index

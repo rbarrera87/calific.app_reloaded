@@ -1,7 +1,9 @@
 class LibrosController < ApplicationController
   before_action :set_libro, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  #load_and_authorize_resource 
+  
+  load_and_authorize_resource except: [:create]
+  layout 'welcome' 
   # GET /libros
   # GET /libros.json
   def index

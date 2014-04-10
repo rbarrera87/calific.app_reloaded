@@ -1,36 +1,37 @@
 class CalificacionesController < ApplicationController
   before_action :set_calificacion, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  
+  load_and_authorize_resource except: [:create]
   layout 'welcome'
   # GET /calificaciones
   # GET /calificaciones.json
   def index
     @calificaciones = Calificacion.all
-    authorize! :read, Calificacion
   end
 
   # GET /calificaciones/1
   # GET /calificaciones/1.jsonk
   def show
-    authorize! :read, Calificacion
+    # authorize! :manage, Calificacion
   end
 
   # GET /calificaciones/new
   def new
     @calificacion = Calificacion.new
-
+   # authorize! :manage, Calificacion
   end
 
   # GET /calificaciones/1/edit
   def edit
+    # authorize! :manage, Calificacion
   end
 
   # POST /calificaciones
   # POST /calificaciones.json
   def create
     @calificacion = Calificacion.new(calificacion_params)
-
+    # authorize! :manage, Calificacion
     respond_to do |format|
       if @calificacion.save
         format.html { redirect_to @calificacion, notice: 'Calificaciones was successfully created.' }

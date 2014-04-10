@@ -1,5 +1,6 @@
 class BibliotecariosController < ApplicationController
-	layout 'bibliotecario'  
+	load_resource 
+  layout 'welcome' 
 	  def index
 	  end
 end

@@ -1,7 +1,9 @@
 class AsistenciasController < ApplicationController
   before_action :set_asistencia, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  #load_and_authorize_resource 
+
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
   # GET /asistencias
   # GET /asistencias.json
   def index
