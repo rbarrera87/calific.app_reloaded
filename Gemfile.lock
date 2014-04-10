@@ -93,7 +93,14 @@ GEM
     multi_json (1.8.2)
     mysql2 (0.3.14)
     orm_adapter (0.5.0)
+    pdf-core (0.2.5)
     polyglot (0.3.3)
+    prawn (1.0.0)
+      pdf-core (~> 0.2.2)
+      ttfunk (~> 1.1.1)
+    prawnto_2 (0.2.6)
+      prawn (>= 0.6.0)
+      rails (>= 3.1)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -157,6 +164,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.1.1)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -188,6 +196,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1.0)
   less-rails (~> 2.4.2)
   mysql2 (= 0.3.14)
+  prawnto_2
   rails (= 4.0.0)
   role_model (~> 0.8.1)
   rspec-rails (= 2.14.0)
