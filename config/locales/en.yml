@@ -38,3 +38,11 @@ en:
       delete: "Delete %{model}"
     submit:
       create: "Create %{model}"
+
+    unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{model}."
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."
+
