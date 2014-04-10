@@ -76,5 +76,12 @@ move_down 2
 text "DIRECTORA DE VINCULACION", align: :center
 transparent(0.0) { stroke_bounds }
 end
+
+pdf.image "images/logo.jpg", :at => [pdf.bounds.right - 500, 730], :align => :left, :width => 80
+  pdf.number_pages "<page> in a total of <total>", :start_count_at => 0, :page_filter => :all, :at => [pdf.bounds.right - 100, 0], :align => :right, :size => 2
+
+pdf.image "images/iso.jpg", :at => [pdf.bounds.right - 500, 200], :align => :left, :width => 80
+  pdf.number_pages "<page> in a total of <total>", :start_count_at => 0, :page_filter => :all, :at => [pdf.bounds.right - 100, 0], :align => :right, :size => 14
+
   pdf.number_pages "Prol. Reforma 168, Barrio de Santiago Mihuacán, C.P.:74450, Izúcar de Matamoros, Puebla, Tels.: (243) 43-6-38-95, 43 638 96, 43 623 13 (Fax)", :size => 8, :at => [10, 0]
 end
