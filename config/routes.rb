@@ -1,5 +1,15 @@
 CalificaMe::Application.routes.draw do
 
+  resources :rubros
+
+  resources :criterios
+
+  resources :s_criterios
+
+  resources :sb_criterios
+
+  resources :sh_criterios
+
   devise_for :users
   resources :welcome
   resources :directores
@@ -14,8 +24,7 @@ CalificaMe::Application.routes.draw do
   resources :grados
   resources :grupos
   resources :carreras
-  resources :dashboard
-  resources :criterios
+  resources :dashboard  
   resources :prestamo_libros
   resources :tutorias
   resources :indicadores

@@ -1,0 +1,39 @@
+%h1 Listing rubros
+
+%table
+  %tr
+    %th Sb1
+    %th Sb2
+    %th Sb3
+    %th Sh1
+    %th Sh2
+    %th Sh3
+    %th S1
+    %th S2
+    %th S3
+    %th Calificacion
+    %th Asignatura
+    %th
+    %th
+    %th
+
+  - @rubros.each do |rubro|
+    %tr
+      %td= rubro.sb1
+      %td= rubro.sb2
+      %td= rubro.sb3
+      %td= rubro.sh1
+      %td= rubro.sh2
+      %td= rubro.sh3
+      %td= rubro.s1
+      %td= rubro.s2
+      %td= rubro.s3
+      %td= rubro.calificacion_id
+      %td= rubro.asignatura_id
+      %td= link_to 'Show', rubro
+      %td= link_to 'Edit', edit_rubro_path(rubro)
+      %td= link_to 'Destroy', rubro, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Rubro', new_rubro_path

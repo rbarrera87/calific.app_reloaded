@@ -1,0 +1,18 @@
+= simple_form_for(@rubro) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :sb1
+    = f.input :sb2
+    = f.input :sb3
+    = f.input :sh1
+    = f.input :sh2
+    = f.input :sh3
+    = f.input :s1
+    = f.input :s2
+    = f.input :s3
+    = f.input :calificacion_id
+    = f.input :asignatura_id
+
+  .form-actions
+    = f.button :submit

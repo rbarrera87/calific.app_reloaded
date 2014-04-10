@@ -19,11 +19,11 @@ class CalificacionesController < ApplicationController
   # GET /calificaciones/new
   def new
     @calificacion = Calificacion.new
-
   end
 
   # GET /calificaciones/1/edit
   def edit
+    @calificacion.s_criterios.build
   end
 
   # POST /calificaciones
@@ -74,6 +74,7 @@ class CalificacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def calificacion_params
-      params.require(:calificacion).permit(:calificacion_ordinaria, :calificacion_remedial, :calificacion_extraordinaria, :calificacion_final)
+     params.require(:calificacion).permit(:calificacion_ordinaria, :calificacion_remedial, :calificacion_extraordinaria, :calificacion_final, :sb1, :sb2, :sb3, :sh1, :sh2, :sh3, :s1, :s2, :s3,
+        criterio_attributes: [:porcentaje] )
     end
 end

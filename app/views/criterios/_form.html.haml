@@ -1,7 +1,17 @@
 = simple_form_for @criterio, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :nombre, label: 'Nombre:'
-  = f.input :descripcion, label: 'Descripción:'
-  = f.input :estado, label: 'Activo:', as: :boolean, checked_value: true, unchecked_value: false
+  = f.input :descripcion
+  / = f.label 'Carrera:'
+  / = f.collection_select :carrera_id, Carrera.all, :id, :nombre
+  / %br/
+  / %br/
+  / = f.input :calificacion_id
+
+  = f.fields_for :sb_criterios do |sb|
+    = sb.input :porcentaje, label: "Saber:"
+  = f.fields_for :sh_criterios do |sh|
+    = sh.input :porcentaje, label: "Saber hacer:"
+  = f.fields_for :s_criterios do |s|
+    = s.input :porcentaje, label: "Ser:"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), criterios_path, :class => 'btn'

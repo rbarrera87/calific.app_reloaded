@@ -8,6 +8,7 @@
       %th= model_class.human_attribute_name(:Clave)
       %th= model_class.human_attribute_name(:Nombre)
       %th= model_class.human_attribute_name(:Descripción)
+      %th= model_class.human_attribute_name(:Nivel)
       - if can? :manage, Carrera
         %th=t '.actions', default: t("helpers.actions")
   %tbody
@@ -16,6 +17,7 @@
         %td= link_to carrera.id, carrera_path(carrera)
         %td= carrera.nombre
         %td= carrera.descripcion
+        %td= carrera.criterio.descripcion
         - if can? :manage, Carrera
           %td
             = link_to t('.edit', default: t("helpers.links.edit")), edit_carrera_path(carrera), class: 'btn btn-mini'

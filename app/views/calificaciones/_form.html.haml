@@ -3,6 +3,8 @@
   = f.input :calificacion_remedial
   = f.input :calificacion_extraordinaria
   = f.input :calificacion_final
+  = f.input :asignatura_id
+  = f.input :grupo_id
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), calificaciones_path, :class => 'btn'

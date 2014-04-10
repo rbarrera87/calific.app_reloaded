@@ -1,0 +1,27 @@
+%h1 Listing s_criterios
+
+%table
+  %tr
+    %th Porcentaje
+    %th Rubro uno
+    %th Rubro dos
+    %th Rubro tres
+    %th Criterio
+    %th
+    %th
+    %th
+
+  - @s_criterios.each do |s_criterio|
+    %tr
+      %td= s_criterio.porcentaje
+      %td= s_criterio.rubro_uno
+      %td= s_criterio.rubro_dos
+      %td= s_criterio.rubro_tres
+      %td= s_criterio.criterio_id
+      %td= link_to 'Show', s_criterio
+      %td= link_to 'Edit', edit_s_criterio_path(s_criterio)
+      %td= link_to 'Destroy', s_criterio, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New S criterio', new_s_criterio_path

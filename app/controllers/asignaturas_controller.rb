@@ -13,6 +13,8 @@ class AsignaturasController < ApplicationController
 
   def new
     @asignatura = Asignatura.new
+    @asignatura.s_criterios.build
+    @asignatura.sb_criterios.build
   end
 
   def edit

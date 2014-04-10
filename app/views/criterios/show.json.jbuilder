@@ -1,1 +1,1 @@
-json.extract! @criterio, :id, :created_at, :updated_at
+json.extract! @criterio, :id, :descripcion, :carrera_id, :calificacion_id, :created_at, :updated_at

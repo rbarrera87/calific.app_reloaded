@@ -1,7 +1,6 @@
 class CriteriosController < ApplicationController
   before_action :set_criterio, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  #load_and_authorize_resource 
+
   # GET /criterios
   # GET /criterios.json
   def index
@@ -16,6 +15,9 @@ class CriteriosController < ApplicationController
   # GET /criterios/new
   def new
     @criterio = Criterio.new
+    @criterio.sb_criterios.build
+    @criterio.sh_criterios.build
+    @criterio.s_criterios.build
   end
 
   # GET /criterios/1/edit
@@ -70,6 +72,9 @@ class CriteriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def criterio_params
-      params.require(:criterio).permit(:nombre, :descripcion, :estado)
+      params.require(:criterio).permit(:descripcion, :carrera_id, :calificacion_id,
+                                                      s_criterios_attributes: [:id, :porcentaje], 
+                                                     sb_criterios_attributes: [:id, :porcentaje],
+                                                     sh_criterios_attributes: [:id, :porcentaje])
     end
 end

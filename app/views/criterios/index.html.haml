@@ -1,26 +1,19 @@
 - model_class = Criterio
 .page-header
-%h3.text-primary.text-center
-  =t '.title', default: [:'helpers.titles.index', 'index %{model}'], model: model_class.model_name.human.pluralize
-%table.table.table-bordered.table-hover.table-condensed
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:clave)
-      %th= model_class.human_attribute_name(:Nombre)
-      %th= model_class.human_attribute_name(:Descripción)
-      %th= model_class.human_attribute_name(:Estado)
-      - if can? :manage, Criterio
-        %th=t '.actions', default: t("helpers.actions")
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:descripcion)
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @criterios.each do |criterio|
       %tr
         %td= link_to criterio.id, criterio_path(criterio)
-        %td= criterio.nombre
         %td= criterio.descripcion
-        %td= criterio.estado
-        - if can? :manage, Criterio
-          %td
-            = link_to t('.edit', default: t("helpers.links.edit")), edit_criterio_path(criterio), class: 'btn btn-mini'
-            = link_to t('.destroy', default: t("helpers.links.destroy")), criterio_path(criterio), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
-- if can? :manage, Criterio
-  = link_to t('.new', default: t("helpers.links.new")), new_criterio_path, class: 'btn btn-primary'
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_criterio_path(criterio), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), criterio_path(criterio), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_criterio_path, :class => 'btn btn-primary'

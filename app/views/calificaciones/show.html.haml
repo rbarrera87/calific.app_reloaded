@@ -18,6 +18,15 @@
   %strong= model_class.human_attribute_name(:calificacion_final) + ':'
   %br
   = @calificacion.calificacion_final
+%p
+  %strong= model_class.human_attribute_name(:asignatura_id) + ':'
+  %br
+  = @calificacion.asignatura_id
+%p
+  %strong= model_class.human_attribute_name(:grupo_id) + ':'
+  %br
+  = @calificacion.grupo_id
+
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calificaciones_path, :class => 'btn'

@@ -1,0 +1,12 @@
+= simple_form_for(@s_criterio) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :porcentaje
+    = f.input :rubro_uno
+    = f.input :rubro_dos
+    = f.input :rubro_tres
+    = f.input :criterio_id
+
+  .form-actions
+    = f.button :submit

@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313004112) do
+ActiveRecord::Schema.define(version: 20140410023114) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "carrera_id"
+    t.integer  "grupo_id"
+  end
+
+  create_table "asignaturas_calificaciones", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +45,8 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.string   "calificacion_final"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "asignatura_id"
+    t.integer  "grupo_id"
   end
 
   create_table "carrera_docentes", force: true do |t|
@@ -54,6 +63,8 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "estado"
+    t.integer  "criterio_id"
   end
 
   create_table "consejeros", force: true do |t|
@@ -65,11 +76,10 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.datetime "updated_at"
   end
 
-  create_table "criterio_indicadores", force: true do |t|
-    t.string   "nombre"
+  create_table "criterios", force: true do |t|
     t.string   "descripcion"
-    t.boolean  "estado"
-    t.string   "type"
+    t.integer  "carrera_id"
+    t.integer  "calificacion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,11 +91,21 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.datetime "updated_at"
   end
 
+  create_table "grados_grupos", force: true do |t|
+    t.integer  "grado_id"
+    t.integer  "grupo_id"
+    t.integer  "carrera_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "grupos", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "carrera_id"
+    t.integer  "grado_id"
   end
 
   create_table "libros", force: true do |t|
@@ -127,11 +147,16 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.integer  "grupo_id",                            null: false
     t.integer  "carrera_id",                          null: false
     t.boolean  "tsu_ingenieria",      default: false
-    t.integer  "grado_id",                            null: false
   end
 
-  add_index "perfiles", ["grado_id"], name: "index_perfiles_on_grado_id", using: :btree
-  add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
+  add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "constraint_in_perfiles", unique: true, using: :btree
+
+  create_table "perfiles_asignaturas", force: true do |t|
+    t.integer  "perfil_id"
+    t.integer  "asignatura_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "prestamo_libros", force: true do |t|
     t.decimal  "multa_dia",   precision: 10, scale: 0
@@ -144,14 +169,51 @@ ActiveRecord::Schema.define(version: 20140313004112) do
 
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
-  create_table "rel_grado_grupos", force: true do |t|
-    t.integer  "grado_id",   null: false
-    t.integer  "grupo_id",   null: false
+  create_table "rubros", force: true do |t|
+    t.integer  "sb1"
+    t.integer  "sb2"
+    t.integer  "sb3"
+    t.integer  "sh1"
+    t.integer  "sh2"
+    t.integer  "sh3"
+    t.integer  "s1"
+    t.integer  "s2"
+    t.integer  "s3"
+    t.integer  "calificacion_id"
+    t.integer  "asignatura_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
+  create_table "s_criterios", force: true do |t|
+    t.integer  "porcentaje"
+    t.integer  "rubro_uno"
+    t.integer  "rubro_dos"
+    t.integer  "rubro_tres"
+    t.integer  "criterio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sb_criterios", force: true do |t|
+    t.integer  "porcentaje"
+    t.integer  "rubro_uno"
+    t.integer  "rubro_dos"
+    t.integer  "rubro_tres"
+    t.integer  "criterio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sh_criterios", force: true do |t|
+    t.integer  "porcentaje"
+    t.integer  "rubro_uno"
+    t.integer  "rubro_dos"
+    t.integer  "rubro_tres"
+    t.integer  "criterio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tutorias", force: true do |t|
     t.integer  "mes1"

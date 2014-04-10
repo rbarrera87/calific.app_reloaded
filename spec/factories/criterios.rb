@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :criterio do
+    descripcion "MyString"
+    carrera_id 1
+    calificacion_id 1
   end
 end

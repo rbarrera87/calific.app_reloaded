@@ -23,7 +23,7 @@ describe CriteriosController do
   # This should return the minimal set of attributes required to create a valid
   # Criterio. As you add validations to Criterio, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { { "descripcion" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe CriteriosController do
       it "assigns a newly created but unsaved criterio as @criterio" do
         # Trigger the behavior that occurs when invalid params are submitted
         Criterio.any_instance.stub(:save).and_return(false)
-        post :create, {:criterio => {  }}, valid_session
+        post :create, {:criterio => { "descripcion" => "invalid value" }}, valid_session
         assigns(:criterio).should be_a_new(Criterio)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Criterio.any_instance.stub(:save).and_return(false)
-        post :create, {:criterio => {  }}, valid_session
+        post :create, {:criterio => { "descripcion" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe CriteriosController do
         # specifies that the Criterio created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Criterio.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => criterio.to_param, :criterio => { "these" => "params" }}, valid_session
+        Criterio.any_instance.should_receive(:update).with({ "descripcion" => "MyString" })
+        put :update, {:id => criterio.to_param, :criterio => { "descripcion" => "MyString" }}, valid_session
       end
 
       it "assigns the requested criterio as @criterio" do
@@ -128,7 +128,7 @@ describe CriteriosController do
         criterio = Criterio.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Criterio.any_instance.stub(:save).and_return(false)
-        put :update, {:id => criterio.to_param, :criterio => {  }}, valid_session
+        put :update, {:id => criterio.to_param, :criterio => { "descripcion" => "invalid value" }}, valid_session
         assigns(:criterio).should eq(criterio)
       end
 
@@ -136,7 +136,7 @@ describe CriteriosController do
         criterio = Criterio.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Criterio.any_instance.stub(:save).and_return(false)
-        put :update, {:id => criterio.to_param, :criterio => {  }}, valid_session
+        put :update, {:id => criterio.to_param, :criterio => { "descripcion" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
