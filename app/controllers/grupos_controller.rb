@@ -1,7 +1,8 @@
 class GruposController < ApplicationController
   before_action :set_grupo, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  layout 'application'
+  load_and_authorize_resource except: [:create] 
+  layout 'welcome'
 
   def index
     @grupos = Grupo.all

@@ -1,6 +1,8 @@
 class DocentesController < ApplicationController
   before_action :set_docente, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  load_resource 
+  layout 'welcome'
   # GET /docentes
   # GET /docentes.json
   def index
@@ -69,6 +71,7 @@ class DocentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def docente_params
-      params[:docente]
+      params.require(:docente).permit(:perfil_id, :carrera_id)
+      #params.require(:criterio).permit(:nombre, :descripcion, :estado)
     end
 end

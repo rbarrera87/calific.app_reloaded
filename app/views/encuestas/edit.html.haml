@@ -1,2 +1,4 @@
-%h1 Encuestas#edit
-%p Find me in app/views/encuestas/edit.html.haml
+- model_class = Encuesta
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

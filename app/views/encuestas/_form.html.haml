@@ -1,0 +1,7 @@
+= simple_form_for @encuesta, html: { class: 'form-horizontal' } do |f|
+  = f.input :nombre
+  = f.fields_for :preguntas do |b|
+    = render 'pregunta', f: b
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), encuestas_path, class: 'btn'

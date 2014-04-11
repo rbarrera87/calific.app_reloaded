@@ -1,7 +1,8 @@
 class AsignaturasController < ApplicationController
   before_action :set_asignatura, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  layout 'application'
+  load_resource 
+  layout 'welcome'
 
   def index
     @asignaturas = Asignatura.all

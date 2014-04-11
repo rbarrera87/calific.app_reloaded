@@ -1,7 +1,4 @@
-%h1 Editing docente
-
-= render 'form'
-
-= link_to 'Show', @docente
-\|
-= link_to 'Back', docentes_path
+- model_class = Docente
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"

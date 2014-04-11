@@ -1,3 +1,4 @@
+require 'role_model'  
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,12 +11,27 @@ class User < ActiveRecord::Base
   has_many :user_asignaturas
   has_one :perfil
 
+  include RoleModel
+  
+  # optionally set the integer attribute to store the roles in,
+  # :roles_mask is the default
+  roles_attribute :roles_mask
+ 
+  # declare the valid roles -- do not change the order if you add more
+  # roles later, always append them at the end!
+ 
+
   #attr_accessible :roles
 
   #Roles logic Many roles per user, for more information go to http://bit.ly/IAojjB
   #############################################################################
+  roles :admin, :alumno, :docente, :director, :bibliotecario
 
-  ROLES = %w[admin moderator author banned]
+  ROLES = %w[admin alumno docente director bibliotecario]
+
+  def is?(role)
+    roles.include?(role.to_s)
+  end
 
   def roles=(roles)
 	  self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
@@ -30,9 +46,9 @@ class User < ActiveRecord::Base
   private
     def crear_perfil
       perfil = self.build_perfil
-      perfil.grupo_id = 0
-      perfil.carrera_id = 0
-      perfil.grado_id = 0
+      perfil.grupo_id = 1
+      perfil.carrera_id = 1
+      perfil.grado_id = 1
       perfil.save(validate:false)
     end
 

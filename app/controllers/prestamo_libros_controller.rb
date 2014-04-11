@@ -1,6 +1,9 @@
 class PrestamoLibrosController < ApplicationController
   before_action :set_prestamo_libro, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
   # GET /prestamo_libros
   # GET /prestamo_libros.json
   def index
@@ -25,7 +28,6 @@ class PrestamoLibrosController < ApplicationController
   # POST /prestamo_libros.json
   def create
     @prestamo_libro = PrestamoLibro.new(prestamo_libro_params)
-
     respond_to do |format|
       if @prestamo_libro.save
         format.html { redirect_to @prestamo_libro, notice: 'Prestamo libro was successfully created.' }
@@ -69,6 +71,6 @@ class PrestamoLibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_libro_params
-      params[:prestamo_libro]
+      params.require(:prestamo_libro).permit(:multa_dia, :comentarios, :perfil_id, :libro_id)
     end
 end

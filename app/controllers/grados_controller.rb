@@ -1,7 +1,8 @@
 class GradosController < ApplicationController
   before_action :set_grado, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  layout 'application'
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
 
   def index
     @grados = Grado.all

@@ -17,6 +17,14 @@ es:
       career: "Carreras"
       grades: "Grados"
       groups: "Grupos"
+      tutories: "Tutorias"
+      criteria: "Criterios de evaluacion"
+      indicators: "Indicadores"
+      conselour: "Consejeros"
+      score: "Calificaciones"
+      assists: "Asistencias"
+      books: "Libros"
+      book_lending: "Prestamo de libros"
 
     titles:
       edit: "Editar %{model}"

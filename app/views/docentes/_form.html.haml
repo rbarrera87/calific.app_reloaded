@@ -1,7 +1,6 @@
-= simple_form_for(@docente) do |f|
-  = f.error_notification
-
-  .form-inputs
-
+= simple_form_for @docente, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :perfil_id
+  = f.input :carrera_id
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), docentes_path, :class => 'btn'

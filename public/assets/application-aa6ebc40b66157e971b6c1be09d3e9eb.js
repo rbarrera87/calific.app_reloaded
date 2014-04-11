@@ -11,7 +11,10 @@
  *
  * Date: 2014-01-23T21:02Z
  */
-
+function remove_fields(link) {
+        $(link).previous("input[type=hidden]").value = "1";
+        $(link).up(".fields").hide();
+}
 
 (function( global, factory ) {
 

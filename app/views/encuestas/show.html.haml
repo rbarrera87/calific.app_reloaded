@@ -1,2 +1,20 @@
-%h1 Encuestas#show
-%p Find me in app/views/encuestas/show.html.haml
+- model_class = Encuesta
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:nombre) + ':'
+  %br
+  = @encuesta.nombre
+%ol
+  - for pregunta in @encuesta.preguntas
+    %li= h pregunta.pregunta
+    %ul
+      - for respuesta in pregunta.respuestas
+        %li= h respuesta.respuesta
+
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), encuestas_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_encuesta_path(@encuesta), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), encuesta_path(@encuesta), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
