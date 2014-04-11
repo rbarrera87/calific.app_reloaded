@@ -1,7 +1,9 @@
 class PrestamoLibrosController < ApplicationController
   before_action :set_prestamo_libro, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  load_and_authorize_resource 
+
+  load_and_authorize_resource except: [:create]
+  layout 'welcome'
   # GET /prestamo_libros
   # GET /prestamo_libros.json
   def index
@@ -26,7 +28,6 @@ class PrestamoLibrosController < ApplicationController
   # POST /prestamo_libros.json
   def create
     @prestamo_libro = PrestamoLibro.new(prestamo_libro_params)
-
     respond_to do |format|
       if @prestamo_libro.save
         format.html { redirect_to @prestamo_libro, notice: 'Prestamo libro was successfully created.' }

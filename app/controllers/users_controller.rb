@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'home'
+  layout 'user'
   
   def index
   end

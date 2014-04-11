@@ -22,32 +22,12 @@
 				      <a class="brand">
 				      	 Calific.App
 				      </a>
-				      <div class="nav-collapse">
-				        <ul class="nav">
-				          <li><%= link_to t('.link', default: t("helpers.links.subjects")), asignaturas_path %></li>
-				          <li><%= link_to t('.link', default: t("helpers.links.career")), carreras_path %></li>
-				          <li><%= link_to t('.link', default: t("helpers.links.grades")), grados_path %></li>
-				          <li><%= link_to t('.link', default: t("helpers.links.groups")), grupos_path %></li>
-				        </ul>
-				          <li class="dropdown pull-right">
-							 <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%=t '.title', default: [:'helpers.titles.opciones']%><strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#"><%=t '.title', default: [:'helpers.titles.profile'] %></a>
-								</li>
-								<li>
-									<%= link_to t('.link', default: t("helpers.links.log_out")), destroy_user_session_path(), method: :delete%>
-								</li>
-							</ul>
-						</li>
-				      </div>
 				    </div>
 				  </div>
 				</div>
-
-
-
 			</div>
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
 			<div class="row">
 				<div class="span12">
 					<%= yield %>

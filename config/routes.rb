@@ -1,11 +1,13 @@
 CalificaMe::Application.routes.draw do
 
-  resources :libros
-
-  resources :calificaciones
-
   devise_for :users
   resources :welcome
+  resources :directores
+  resources :profesores
+  resources :alumnos
+  resources :bibliotecarios
+  resources :libros
+  resources :calificaciones
   resources :asignaturas
   resources :asistencias
   resources :perfiles
@@ -24,7 +26,8 @@ CalificaMe::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  
+  root 'perfiles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

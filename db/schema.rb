@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313004112) do
+ActiveRecord::Schema.define(version: 20140410153432) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.string   "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "criterio_id"
   end
 
   create_table "consejeros", force: true do |t|
@@ -139,8 +140,7 @@ ActiveRecord::Schema.define(version: 20140313004112) do
     t.integer  "grado_id",                            null: false
   end
 
-  add_index "perfiles", ["grado_id"], name: "index_perfiles_on_grado_id", using: :btree
-  add_index "perfiles", ["user_id", "grupo_id", "carrera_id"], name: "index_perfiles_on_user_id_and_grupo_id_and_carrera_id", unique: true, using: :btree
+  add_index "perfiles", ["user_id", "grupo_id", "carrera_id", "grado_id"], name: "constraint_in_perfiles", unique: true, using: :btree
 
   create_table "prestamo_libros", force: true do |t|
     t.decimal  "multa_dia",   precision: 10, scale: 0

@@ -6,6 +6,7 @@
   %br/
   = f.label 'Grado:'
   = f.collection_select :grado_id, Grado.all, :id, :nombre
+  / = f.collection_select :grado_id, Grado.all, :id, :nombre, {disabled: lambda{|grado| grado.archived? }}
   %br/
   %br/
   = f.label 'Grupo:'
