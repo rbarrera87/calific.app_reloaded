@@ -14,7 +14,7 @@
   %br/
   %br/
   = f.label 'Nombre del Tutor:'
-  = f.collection_select :perfil_id, Perfil.all, :id, :nombre
+  = f.collection_select :perfil_id, Perfil.where('perfiles.id not in (?)', Consejero.all.pluck(:perfil_id)), :id, :nombre
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), consejeros_path, :class => 'btn'
