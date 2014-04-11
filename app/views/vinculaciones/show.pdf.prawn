@@ -19,7 +19,7 @@ text "<#{n1}>UNIVERSIDAD TECNOLÓGICA DE IZÚCAR DE MATAMOROS</#{n1}>", :inline_
 text "<#{n1}>IZÚCAR DE MATAMOROS, PUE.</#{n1}>", :inline_format => true
 text "<#{n1}>PRESENTE:</#{n1}>", :inline_format => true
 
- a= @vinculaciones.find(1)
+a = @vinculacion.find(1)
 move_down 30
 text "La Dirección de Vinculación de esta Universidad, tiene a bien asignar al <#{n1}> T.S.U #{a.perfil.nombre} </#{n1}> del Programa Educativo <#{n1}> #{a.carrera.nombre} </#{n1}> con Número de control <#{n1}> #{a.perfil.numero_control} </#{n1}> para que realice su Estadía Técnica en el programa <#{n1}> SISTEMA AUTOMATIZADO DE CALIFICACIONES DE UNIVERSIDADES TECNOLOGICAS CALIFICAPP. </#{n1}> que inicia con fecha <#{n1}>07 de Enero de 2014</#{n1}> y tendrá una duración de 13 semanas en el horario establecido por Ustedes.", align: :justify, :inline_format => true, :indent_paragraphs => 30
 

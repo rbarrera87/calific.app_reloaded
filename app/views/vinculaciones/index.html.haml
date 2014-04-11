@@ -1,3 +1,27 @@
-%h1 Vinculaciones#index
-%p Find me in app/views/vinculaciones/index.html.haml
-%a.button.btn-lg.btn-success{type: 'button', href: 'vinculaciones.pdf'} Reportes
+- model_class = Vinculacion
+.page-header
+  %h1 Vinculaión carta de presentación
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:carrera_id)
+      %th= model_class.human_attribute_name(:perfil_id)
+      %th= model_class.human_attribute_name(:nombre_proyecto)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @vinculaciones.each do |vinculacion|
+      %tr
+        %td= link_to vinculacion.id, vinculacion_path(vinculacion)
+        %td= vinculacion.carrera.nombre
+        %td= vinculacion.perfil.nombre
+        %td= vinculacion.nombre_proyecto
+        %td= vinculacion.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_vinculacion_path(vinculacion), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), vinculacion_path(vinculacion), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_vinculacion_path, :class => 'btn btn-primary'
+= link_to "carta (PDF)",vinculaciones_path(@vinculacion, :format => "pdf")
+
