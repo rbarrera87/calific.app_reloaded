@@ -1,0 +1,7 @@
+= f.label :pregunta, 'Pregunta'
+= f.text_area :pregunta, rows: 3
+/ = f.check_box :_destroy
+/ = f.label :_destroy, "Remover pregunta"
+
+= f.fields_for :respuestas do |b|
+  = render 'respuesta', f: b

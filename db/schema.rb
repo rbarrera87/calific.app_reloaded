@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410153432) do
+ActiveRecord::Schema.define(version: 20140411165642) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 20140410153432) do
 
   add_index "docentes", ["perfil_id", "carrera_id"], name: "index_docentes_on_perfil_id_and_carrera_id", unique: true, using: :btree
 
+  create_table "encuestas", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "grados", force: true do |t|
     t.string   "nombre"
     t.string   "descripcion"
@@ -142,6 +148,15 @@ ActiveRecord::Schema.define(version: 20140410153432) do
 
   add_index "perfiles", ["user_id", "grupo_id", "carrera_id", "grado_id"], name: "constraint_in_perfiles", unique: true, using: :btree
 
+  create_table "preguntas", force: true do |t|
+    t.text     "pregunta"
+    t.integer  "encuesta_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preguntas", ["encuesta_id"], name: "index_preguntas_on_encuesta_id", using: :btree
+
   create_table "prestamo_libros", force: true do |t|
     t.decimal  "multa_dia",   precision: 10, scale: 0
     t.string   "comentarios"
@@ -161,6 +176,17 @@ ActiveRecord::Schema.define(version: 20140410153432) do
   end
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
+
+  create_table "respuestas", force: true do |t|
+    t.integer  "pregunta_id"
+    t.integer  "perfil_id"
+    t.text     "respuesta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "respuestas", ["perfil_id"], name: "index_respuestas_on_perfil_id", using: :btree
+  add_index "respuestas", ["pregunta_id"], name: "index_respuestas_on_pregunta_id", using: :btree
 
   create_table "tutorias", force: true do |t|
     t.integer  "mes1"
