@@ -31,4 +31,4 @@
   = link_to t('.back', :default => t("helpers.links.back")), vinculaciones_path, :class => 'btn'
   = link_to t('.edit', :default => t("helpers.links.edit")), edit_vinculacion_path(@vinculacion), :class => 'btn'
   = link_to t('.destroy', :default => t("helpers.links.destroy")), vinculacion_path(@vinculacion), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
-  = link_to "carta (PDF)", vinculacion_path(@vinculacion, format: "pdf")
+  = link_to "carta (PDF)", vinculacion_path(@vinculacion, format: "pdf"),  :class => 'btn btn-success'
