@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
-layout 'welcome'
-  def index
-  end
+	before_filter :authenticate_user!
+  
+	layout 'welcome'
+	  def index
+	  end
 end

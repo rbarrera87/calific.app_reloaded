@@ -5,13 +5,12 @@ class VinculacionesController < ApplicationController
   # GET /vinculaciones.json
   def index
     @vinculaciones = Vinculacion.all
-
   end
 
   # GET /vinculaciones/1
   # GET /vinculaciones/1.json
   def show
-
+    
   end
 
   # GET /vinculaciones/new
@@ -71,6 +70,6 @@ class VinculacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vinculacion_params
-      params.require(:vinculacion).permit(:carrera_id, :perfil_id, :nombre_proyecto, perfil:[:numero_control] )
+      params.require(:vinculacion).permit(:carrera_id, :perfil_id, :nombre_proyecto, :nombre_director, :fecha_inicio, :fecha_fin)
     end
 end

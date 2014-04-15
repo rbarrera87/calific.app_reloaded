@@ -10,6 +10,9 @@ class Perfil < ActiveRecord::Base
   has_many :tutorias
   has_many :prestamo_libros
   has_one :vinculacion
+  has_many :respuestas
+  has_many :preguntas, through: :respuestas
+
 
     validates :numero_control, :estado_civil, :sexo,
 	           :rfc, :curp, :calle,:poblacion, :estado, :situacion, :turno, presence: true

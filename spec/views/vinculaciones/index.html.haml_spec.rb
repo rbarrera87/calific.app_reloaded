@@ -6,12 +6,14 @@ describe "vinculaciones/index" do
       stub_model(Vinculacion,
         :carrera_id => 1,
         :perfil_id => 2,
-        :nombre_proyecto => "Nombre Proyecto"
+        :nombre_proyecto => "Nombre Proyecto",
+        :nombre_director => "Nombre Director"
       ),
       stub_model(Vinculacion,
         :carrera_id => 1,
         :perfil_id => 2,
-        :nombre_proyecto => "Nombre Proyecto"
+        :nombre_proyecto => "Nombre Proyecto",
+        :nombre_director => "Nombre Director"
       )
     ])
   end
@@ -22,5 +24,6 @@ describe "vinculaciones/index" do
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => 2.to_s, :count => 2
     assert_select "tr>td", :text => "Nombre Proyecto".to_s, :count => 2
+    assert_select "tr>td", :text => "Nombre Director".to_s, :count => 2
   end
 end

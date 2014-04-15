@@ -1,9 +1,11 @@
 class PerfilesController < ApplicationController
   before_action :set_perfil, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  load_and_authorize_resource 
+  load_resource 
+  layout 'welcome'
   def index
     @perfil = current_user.perfil
+    authorize! :read, Perfil
   end
 
   def show
@@ -14,9 +16,11 @@ class PerfilesController < ApplicationController
   end
 
   def edit
+    authorize! :update, Perfil
   end
 
   def update
+    authorize! :update, Perfil
     respond_to do |format|
       if @perfil.update(perfil_params)
         format.html { redirect_to @perfil, notice: 'El perfil se ha actualizado' }

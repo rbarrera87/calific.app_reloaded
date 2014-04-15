@@ -5,7 +5,8 @@ describe "vinculaciones/show" do
     @vinculacion = assign(:vinculacion, stub_model(Vinculacion,
       :carrera_id => 1,
       :perfil_id => 2,
-      :nombre_proyecto => "Nombre Proyecto"
+      :nombre_proyecto => "Nombre Proyecto",
+      :nombre_director => "Nombre Director"
     ))
   end
 
@@ -15,5 +16,6 @@ describe "vinculaciones/show" do
     rendered.should match(/1/)
     rendered.should match(/2/)
     rendered.should match(/Nombre Proyecto/)
+    rendered.should match(/Nombre Director/)
   end
 end

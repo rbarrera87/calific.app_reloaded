@@ -5,25 +5,22 @@ class Ability < ActiveRecord::Base
     # Define abilities for the passed in user here. For example:
     #
     if user.is? :admin
-     can :manage, :all
+      can :manage, :all
     elsif user.is? :director
-      can :manage, [Indicador, Consejero, Criterio, Tutoria]
-      #cannot :manage, [Calificacion, Carrera, libro, Grado, Grupo]
-      can :update, Perfil
+      can :manage, [Consejero, Criterio, Tutoria]
+      can [:update, :read], Perfil
+      can [:show, :read], Calificacion
     elsif user.is? :docente
-      can :manage, [Calificacion, Asistencia]
-        #no puede actualizar su perfil
-      can :update, Perfil
-      #cannot :manage, [Carrera, Criterio, Indicador, Libro]
+      can [:show, :update, :read], Calificacion
+      can :manage, Asistencia
+      can [:update, :read], Perfil
     elsif user.is? :bibliotecario
       can :manage, [Libro, PrestamoLibro]
-      #cannot :manage, [Calificacion, Asignatura, Asistencia, Carrera, Criterio, Indicador]
-      #no puede actualizar su perfil
-      can :update, Perfil
+      can [:update, :read], Perfil
     else user.is? :alumno
-      #cannot :manage, [Calificacion, Asignatura, Asistencia, Carrera, Criterio, Indicador]
-      can :update, Perfil
-    end
+      can [:update, :read], Perfil
+      can :read, Calificacion
+  end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

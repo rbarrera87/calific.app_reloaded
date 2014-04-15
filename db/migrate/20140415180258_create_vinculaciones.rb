@@ -4,6 +4,9 @@ class CreateVinculaciones < ActiveRecord::Migration
       t.integer :carrera_id
       t.integer :perfil_id
       t.string :nombre_proyecto
+      t.string :nombre_director
+      t.date :fecha_inicio
+      t.date :fecha_fin
 
       t.timestamps
     end

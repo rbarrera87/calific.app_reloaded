@@ -1,7 +1,8 @@
 class IndicadoresController < ApplicationController
   before_action :set_indicador, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
-  load_and_authorize_resource 
+  load_resource 
+  layout 'welcome'
   # GET /indicadores
   # GET /indicadores.json
   def index

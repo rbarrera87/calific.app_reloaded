@@ -1,12 +1,21 @@
-CalificaMe::Application.routes.draw do
-
-  get "egresados/index"
+CalificaMe::Application.routes.draw do  resources :empresas
   resources :vinculaciones
-  resources :empresas
   resources :libros
   resources :calificaciones
+  resources :encuestas do
+    member do
+      get 'respuestas'
+    end
+  end
+
   devise_for :users
   resources :welcome
+  resources :directores
+  resources :profesores
+  resources :alumnos
+  resources :bibliotecarios
+  resources :libros
+  resources :calificaciones
   resources :asignaturas
   resources :asistencias
   resources :perfiles
@@ -20,12 +29,12 @@ CalificaMe::Application.routes.draw do
   resources :indicadores
   resources :docentes
   resources :consejeros
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  
+  root 'perfiles#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
