@@ -20,7 +20,7 @@
         %td= prestamo_libro.comentarios
         %td= prestamo_libro.perfil.nombre
         %td= prestamo_libro.libro.nombre
-        %td= prestamo_libro.created_at
+        %td= prestamo_libro.fecha_prestamo
         - if can? :manage, PrestamoLibro
           %td
             = link_to t('.edit', default: t("helpers.links.edit")), edit_prestamo_libro_path(prestamo_libro), class: 'btn btn-mini btn-sm active'
