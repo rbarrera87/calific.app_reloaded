@@ -1,5 +1,6 @@
 CalificaMe::Application.routes.draw do
 
+  get "sin_in/index"
   resources :encuestas do
     member do
       get 'respuestas'

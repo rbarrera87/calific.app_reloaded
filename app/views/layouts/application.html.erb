@@ -1,39 +1,41 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>
-  	Calific.App
+    CalificApp
   </title>
   <%= javascript_include_tag :defaults, :cache => true %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <style type="text/css">
+
+
+  </style>
 </head>
-	<body>
-		<div class="container-fluid">
-			<div class="row-fluid" id="encabezado">
-				<div class="navbar navbar-fixed-top">
-				  <div class="navbar-inner">
-				    <div class="container">
-				      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </a>
-				      <a class="brand">
-				      	 Calific.App
-				      </a>
-				    </div>
-				  </div>
-				</div>
-			</div>
-				<p class="notice"><%= notice %></p>
-				<p class="alert"><%= alert %></p>
-			<div class="row">
-				<div class="span12">
-					<%= yield %>
-				</div>
-			</div>
-		</div>
-	</body>
+  <body  >
+    <div class="container-fluid">
+      <div class="row-fluid" id="encabezado">
+        <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+        <p class="notice"><%= notice %></p>
+        
+      <div class="row">
+        <div class="span12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
