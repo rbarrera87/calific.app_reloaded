@@ -66,15 +66,6 @@ ActiveRecord::Schema.define(version: 20140511203835) do
     t.datetime "updated_at"
   end
 
-  create_table "criterio_indicadores", force: true do |t|
-    t.string   "nombre"
-    t.string   "descripcion"
-    t.boolean  "estado"
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "cuatrimestres", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
@@ -196,13 +187,6 @@ ActiveRecord::Schema.define(version: 20140511203835) do
 
   add_index "rel_asignatura_parciales", ["asignatura_id"], name: "index_rel_asignatura_parciales_on_asignatura_id", using: :btree
   add_index "rel_asignatura_parciales", ["parcial_id"], name: "index_rel_asignatura_parciales_on_parcial_id", using: :btree
-
-  create_table "rel_asignaturas_parciales", force: true do |t|
-    t.integer  "asignatura_id"
-    t.integer  "parcial_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "rel_cuatrimestre_parciales", force: true do |t|
     t.integer  "cuatrimestre_id"
