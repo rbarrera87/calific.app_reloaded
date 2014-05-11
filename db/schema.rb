@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511203835) do
+ActiveRecord::Schema.define(version: 20140511233228) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -32,13 +32,19 @@ ActiveRecord::Schema.define(version: 20140511203835) do
   add_index "asistencias", ["grado_id", "grupo_id", "perfil_id"], name: "index_asistencias_on_grado_id_and_grupo_id_and_perfil_id", unique: true, using: :btree
 
   create_table "calificaciones", force: true do |t|
-    t.string   "calificacion_ordinaria"
-    t.string   "calificacion_remedial"
-    t.string   "calificacion_extraordinaria"
-    t.string   "calificacion_final"
+    t.integer  "user_id"
+    t.integer  "parcial_id"
+    t.integer  "indicador_id"
+    t.integer  "asignatura_id"
+    t.integer  "valor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "calificaciones", ["asignatura_id"], name: "index_calificaciones_on_asignatura_id", using: :btree
+  add_index "calificaciones", ["indicador_id"], name: "index_calificaciones_on_indicador_id", using: :btree
+  add_index "calificaciones", ["parcial_id"], name: "index_calificaciones_on_parcial_id", using: :btree
+  add_index "calificaciones", ["user_id"], name: "index_calificaciones_on_user_id", using: :btree
 
   create_table "carrera_docentes", force: true do |t|
     t.integer  "carrera_id", null: false
@@ -127,10 +133,13 @@ ActiveRecord::Schema.define(version: 20140511203835) do
   end
 
   create_table "parciales", force: true do |t|
-    t.string   "nombre",     null: false
+    t.string   "nombre",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cuatrimestre_id"
   end
+
+  add_index "parciales", ["cuatrimestre_id"], name: "index_parciales_on_cuatrimestre_id", using: :btree
 
   create_table "perfiles", force: true do |t|
     t.string   "nombre"
