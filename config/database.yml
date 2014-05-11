@@ -9,7 +9,7 @@ development:
   encoding: utf8
   pool: 5
   username: root
-  password: Mkn
+  password:
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -22,7 +22,7 @@ test:
   database: califica.me_test
   pool: 5
   username: root
-  password: Mkn
+  password: 
   host: localhost 
 
 production:

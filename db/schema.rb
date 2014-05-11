@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411165642) do
+ActiveRecord::Schema.define(version: 20140511203835) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 20140411165642) do
     t.datetime "updated_at"
   end
 
+  create_table "cuatrimestres", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "docentes", force: true do |t|
     t.integer  "perfil_id",  null: false
     t.integer  "carrera_id", null: false
@@ -104,11 +110,24 @@ ActiveRecord::Schema.define(version: 20140411165642) do
     t.datetime "updated_at"
   end
 
+  create_table "indicadores", force: true do |t|
+    t.string   "nombre"
+    t.integer  "valor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "libros", force: true do |t|
     t.string   "nombre"
     t.string   "editorial"
     t.string   "autor"
     t.string   "categoria"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parciales", force: true do |t|
+    t.string   "nombre",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -168,6 +187,33 @@ ActiveRecord::Schema.define(version: 20140411165642) do
 
   add_index "prestamo_libros", ["perfil_id", "libro_id"], name: "index_prestamo_libros_on_perfil_id_and_libro_id", unique: true, using: :btree
 
+  create_table "rel_asignatura_parciales", force: true do |t|
+    t.integer  "asignatura_id"
+    t.integer  "parcial_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rel_asignatura_parciales", ["asignatura_id"], name: "index_rel_asignatura_parciales_on_asignatura_id", using: :btree
+  add_index "rel_asignatura_parciales", ["parcial_id"], name: "index_rel_asignatura_parciales_on_parcial_id", using: :btree
+
+  create_table "rel_asignaturas_parciales", force: true do |t|
+    t.integer  "asignatura_id"
+    t.integer  "parcial_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rel_cuatrimestre_parciales", force: true do |t|
+    t.integer  "cuatrimestre_id"
+    t.integer  "parcial_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rel_cuatrimestre_parciales", ["cuatrimestre_id"], name: "index_rel_cuatrimestre_parciales_on_cuatrimestre_id", using: :btree
+  add_index "rel_cuatrimestre_parciales", ["parcial_id"], name: "index_rel_cuatrimestre_parciales_on_parcial_id", using: :btree
+
   create_table "rel_grado_grupos", force: true do |t|
     t.integer  "grado_id",   null: false
     t.integer  "grupo_id",   null: false
@@ -176,6 +222,16 @@ ActiveRecord::Schema.define(version: 20140411165642) do
   end
 
   add_index "rel_grado_grupos", ["grado_id", "grupo_id"], name: "index_rel_grado_grupos_on_grado_id_and_grupo_id", unique: true, using: :btree
+
+  create_table "rel_parcial_indicadores", force: true do |t|
+    t.integer  "parcial_id"
+    t.integer  "indicador_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rel_parcial_indicadores", ["indicador_id"], name: "index_rel_parcial_indicadores_on_indicador_id", using: :btree
+  add_index "rel_parcial_indicadores", ["parcial_id"], name: "index_rel_parcial_indicadores_on_parcial_id", using: :btree
 
   create_table "respuestas", force: true do |t|
     t.integer  "pregunta_id"

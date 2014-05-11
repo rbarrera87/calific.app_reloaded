@@ -1,2 +1,0 @@
-class Criterio < CriterioIndicador
-end

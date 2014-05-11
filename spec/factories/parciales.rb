@@ -1,6 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :indicador do
+  factory :parcial do
+    name "MyString"
   end
 end
