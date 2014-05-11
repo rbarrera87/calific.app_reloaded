@@ -1,5 +1,7 @@
 CalificaMe::Application.routes.draw do
 
+  resources :calificaciones
+
   resources :encuestas do
     member do
       get 'respuestas'
@@ -11,8 +13,7 @@ CalificaMe::Application.routes.draw do
   resources :profesores
   resources :alumnos
   resources :bibliotecarios
-  resources :libros
-  resources :calificaciones
+  resources :libros  
   resources :asignaturas
   resources :asistencias
   resources :perfiles

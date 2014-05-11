@@ -1,23 +1,21 @@
 - model_class = Calificacion
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
+%table.table.table-striped
+  %thead
+    %tr
 
-%p
-  %strong= model_class.human_attribute_name(:calificacion_ordinaria) + ':'
-  %br
-  = @calificacion.calificacion_ordinaria
-%p
-  %strong= model_class.human_attribute_name(:calificacion_remedial) + ':'
-  %br
-  = @calificacion.calificacion_remedial
-%p
-  %strong= model_class.human_attribute_name(:calificacion_extraordinaria) + ':'
-  %br
-  = @calificacion.calificacion_extraordinaria
-%p
-  %strong= model_class.human_attribute_name(:calificacion_final) + ':'
-  %br
-  = @calificacion.calificacion_final
+      %th= model_class.human_attribute_name(:primer_parcial) + ':'
+      %th= model_class.human_attribute_name(:segundo_parcial) + ':'
+      %th= model_class.human_attribute_name(:tercer_parcial) + ':'
+      %th= model_class.human_attribute_name(:calificacion_final) + ':'
+  %tbody
+    %tr
+
+      %td= @calificacion.primer_parcial
+      %td= @calificacion.segundo_parcial
+      %td= @calificacion.tercer_parcial
+      %td= @cali
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calificaciones_path, :class => 'btn'

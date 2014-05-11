@@ -1,1 +1,1 @@
-json.extract! @calificacion, :id, :calificacion_ordinaria, :calificacion_remedial, :calificacion_extraordinaria, :calificacion_final, :created_at, :updated_at
+json.extract! @calificacion, :id, :primer_parcial, :segundo_parcial, :tercer_parcial, :calificacion_final, :created_at, :updated_at

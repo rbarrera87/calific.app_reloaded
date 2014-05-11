@@ -1,4 +1,4 @@
 json.array!(@calificaciones) do |calificacion|
-  json.extract! calificacion, :id, :calificacion_ordinaria, :calificacion_remedial, :calificacion_extraordinaria, :calificacion_final
+  json.extract! calificacion, :id, :primer_parcial, :segundo_parcial, :tercer_parcial, :calificacion_final
   json.url calificacion_url(calificacion, format: :json)
 end

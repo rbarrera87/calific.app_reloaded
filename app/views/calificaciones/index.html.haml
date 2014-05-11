@@ -5,25 +5,23 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:calificacion_ordinaria)
-      %th= model_class.human_attribute_name(:calificacion_remedial)
-      %th= model_class.human_attribute_name(:calificacion_extraordinaria)
-      %th= model_class.human_attribute_name(:calificacion_final)
-      - if can? :update, Calificacion
-        %th=t '.actions', :default => t("helpers.actions")
+      %th= model_class.human_attribute_name(:primer_parcial)
+      %th= model_class.human_attribute_name(:segundo_parcial)
+      %th= model_class.human_attribute_name(:tercer_parcial)
+      
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @calificaciones.each do |calificacion|
       %tr
         %td= link_to calificacion.id, calificacion_path(calificacion)
-        %td= calificacion.calificacion_ordinaria
-        %td= calificacion.calificacion_remedial
-        %td= calificacion.calificacion_extraordinaria
-        %td= calificacion.calificacion_final
-        - if can? :update, Calificacion
-          %td
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_calificacion_path(calificacion), :class => 'btn btn-mini'
-        - if can? :manage, Calificacion
-          %td
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), calificacion_path(calificacion), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-- if can? :manage, Calificacion
-  = link_to t('.new', :default => t("helpers.links.new")), new_calificacion_path, :class => 'btn btn-primary'
+        %td= calificacion.primer_parcial
+        %td= calificacion.segundo_parcial
+        %td= calificacion.tercer_parcial
+        
+        %td=l calificacion.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_calificacion_path(calificacion), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), calificacion_path(calificacion), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_calificacion_path, :class => 'btn btn-primary'

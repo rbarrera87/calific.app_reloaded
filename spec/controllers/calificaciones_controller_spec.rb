@@ -21,9 +21,9 @@ require 'spec_helper'
 describe CalificacionesController do
 
   # This should return the minimal set of attributes required to create a valid
-  # Calificaciones. As you add validations to Calificaciones, be sure to
+  # Calificacion. As you add validations to Calificacion, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "calificacion_ordinaria" => "MyString" } }
+  let(:valid_attributes) { { "primer_parcial" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -32,67 +32,67 @@ describe CalificacionesController do
 
   describe "GET index" do
     it "assigns all calificaciones as @calificaciones" do
-      calificaciones = Calificaciones.create! valid_attributes
+      calificacion = Calificacion.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:calificaciones).should eq([calificaciones])
+      assigns(:calificaciones).should eq([calificacion])
     end
   end
 
   describe "GET show" do
-    it "assigns the requested calificaciones as @calificaciones" do
-      calificaciones = Calificaciones.create! valid_attributes
-      get :show, {:id => calificaciones.to_param}, valid_session
-      assigns(:calificaciones).should eq(calificaciones)
+    it "assigns the requested calificacion as @calificacion" do
+      calificacion = Calificacion.create! valid_attributes
+      get :show, {:id => calificacion.to_param}, valid_session
+      assigns(:calificacion).should eq(calificacion)
     end
   end
 
   describe "GET new" do
-    it "assigns a new calificaciones as @calificaciones" do
+    it "assigns a new calificacion as @calificacion" do
       get :new, {}, valid_session
-      assigns(:calificaciones).should be_a_new(Calificaciones)
+      assigns(:calificacion).should be_a_new(Calificacion)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested calificaciones as @calificaciones" do
-      calificaciones = Calificaciones.create! valid_attributes
-      get :edit, {:id => calificaciones.to_param}, valid_session
-      assigns(:calificaciones).should eq(calificaciones)
+    it "assigns the requested calificacion as @calificacion" do
+      calificacion = Calificacion.create! valid_attributes
+      get :edit, {:id => calificacion.to_param}, valid_session
+      assigns(:calificacion).should eq(calificacion)
     end
   end
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Calificaciones" do
+      it "creates a new Calificacion" do
         expect {
-          post :create, {:calificaciones => valid_attributes}, valid_session
-        }.to change(Calificaciones, :count).by(1)
+          post :create, {:calificacion => valid_attributes}, valid_session
+        }.to change(Calificacion, :count).by(1)
       end
 
-      it "assigns a newly created calificaciones as @calificaciones" do
-        post :create, {:calificaciones => valid_attributes}, valid_session
-        assigns(:calificaciones).should be_a(Calificaciones)
-        assigns(:calificaciones).should be_persisted
+      it "assigns a newly created calificacion as @calificacion" do
+        post :create, {:calificacion => valid_attributes}, valid_session
+        assigns(:calificacion).should be_a(Calificacion)
+        assigns(:calificacion).should be_persisted
       end
 
-      it "redirects to the created calificaciones" do
-        post :create, {:calificaciones => valid_attributes}, valid_session
-        response.should redirect_to(Calificaciones.last)
+      it "redirects to the created calificacion" do
+        post :create, {:calificacion => valid_attributes}, valid_session
+        response.should redirect_to(Calificacion.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved calificaciones as @calificaciones" do
+      it "assigns a newly created but unsaved calificacion as @calificacion" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Calificaciones.any_instance.stub(:save).and_return(false)
-        post :create, {:calificaciones => { "calificacion_ordinaria" => "invalid value" }}, valid_session
-        assigns(:calificaciones).should be_a_new(Calificaciones)
+        Calificacion.any_instance.stub(:save).and_return(false)
+        post :create, {:calificacion => { "primer_parcial" => "invalid value" }}, valid_session
+        assigns(:calificacion).should be_a_new(Calificacion)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        Calificaciones.any_instance.stub(:save).and_return(false)
-        post :create, {:calificaciones => { "calificacion_ordinaria" => "invalid value" }}, valid_session
+        Calificacion.any_instance.stub(:save).and_return(false)
+        post :create, {:calificacion => { "primer_parcial" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,60 +100,60 @@ describe CalificacionesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested calificaciones" do
-        calificaciones = Calificaciones.create! valid_attributes
+      it "updates the requested calificacion" do
+        calificacion = Calificacion.create! valid_attributes
         # Assuming there are no other calificaciones in the database, this
-        # specifies that the Calificaciones created on the previous line
+        # specifies that the Calificacion created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Calificaciones.any_instance.should_receive(:update).with({ "calificacion_ordinaria" => "MyString" })
-        put :update, {:id => calificaciones.to_param, :calificaciones => { "calificacion_ordinaria" => "MyString" }}, valid_session
+        Calificacion.any_instance.should_receive(:update).with({ "primer_parcial" => "MyString" })
+        put :update, {:id => calificacion.to_param, :calificacion => { "primer_parcial" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested calificaciones as @calificaciones" do
-        calificaciones = Calificaciones.create! valid_attributes
-        put :update, {:id => calificaciones.to_param, :calificaciones => valid_attributes}, valid_session
-        assigns(:calificaciones).should eq(calificaciones)
+      it "assigns the requested calificacion as @calificacion" do
+        calificacion = Calificacion.create! valid_attributes
+        put :update, {:id => calificacion.to_param, :calificacion => valid_attributes}, valid_session
+        assigns(:calificacion).should eq(calificacion)
       end
 
-      it "redirects to the calificaciones" do
-        calificaciones = Calificaciones.create! valid_attributes
-        put :update, {:id => calificaciones.to_param, :calificaciones => valid_attributes}, valid_session
-        response.should redirect_to(calificaciones)
+      it "redirects to the calificacion" do
+        calificacion = Calificacion.create! valid_attributes
+        put :update, {:id => calificacion.to_param, :calificacion => valid_attributes}, valid_session
+        response.should redirect_to(calificacion)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the calificaciones as @calificaciones" do
-        calificaciones = Calificaciones.create! valid_attributes
+      it "assigns the calificacion as @calificacion" do
+        calificacion = Calificacion.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Calificaciones.any_instance.stub(:save).and_return(false)
-        put :update, {:id => calificaciones.to_param, :calificaciones => { "calificacion_ordinaria" => "invalid value" }}, valid_session
-        assigns(:calificaciones).should eq(calificaciones)
+        Calificacion.any_instance.stub(:save).and_return(false)
+        put :update, {:id => calificacion.to_param, :calificacion => { "primer_parcial" => "invalid value" }}, valid_session
+        assigns(:calificacion).should eq(calificacion)
       end
 
       it "re-renders the 'edit' template" do
-        calificaciones = Calificaciones.create! valid_attributes
+        calificacion = Calificacion.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
-        Calificaciones.any_instance.stub(:save).and_return(false)
-        put :update, {:id => calificaciones.to_param, :calificaciones => { "calificacion_ordinaria" => "invalid value" }}, valid_session
+        Calificacion.any_instance.stub(:save).and_return(false)
+        put :update, {:id => calificacion.to_param, :calificacion => { "primer_parcial" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested calificaciones" do
-      calificaciones = Calificaciones.create! valid_attributes
+    it "destroys the requested calificacion" do
+      calificacion = Calificacion.create! valid_attributes
       expect {
-        delete :destroy, {:id => calificaciones.to_param}, valid_session
-      }.to change(Calificaciones, :count).by(-1)
+        delete :destroy, {:id => calificacion.to_param}, valid_session
+      }.to change(Calificacion, :count).by(-1)
     end
 
     it "redirects to the calificaciones list" do
-      calificaciones = Calificaciones.create! valid_attributes
-      delete :destroy, {:id => calificaciones.to_param}, valid_session
-      response.should redirect_to(calificaciones_index_url)
+      calificacion = Calificacion.create! valid_attributes
+      delete :destroy, {:id => calificacion.to_param}, valid_session
+      response.should redirect_to(calificaciones_url)
     end
   end
 

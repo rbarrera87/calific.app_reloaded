@@ -1,40 +1,39 @@
 class CalificacionesController < ApplicationController
   before_action :set_calificacion, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  
-  load_and_authorize_resource except: [:create]
-  layout 'welcome'
+
   # GET /calificaciones
   # GET /calificaciones.json
   def index
     @calificaciones = Calificacion.all
+   
   end
 
   # GET /calificaciones/1
-  # GET /calificaciones/1.jsonk
+  # GET /calificaciones/1.json
   def show
-    # authorize! :manage, Calificacion
-  end
-
+     @cali1 = @calificacion.primer_parcial 
+     @cali2 = @calificacion.segundo_parcial
+     @cali3 = @calificacion.tercer_parcial
+     @suma= [@cali1.to_i, @cali2.to_i, @cali3.to_i].sum
+     @cali= @suma / 3
+       end
   # GET /calificaciones/new
   def new
     @calificacion = Calificacion.new
-   # authorize! :manage, Calificacion
   end
 
   # GET /calificaciones/1/edit
   def edit
-    # authorize! :manage, Calificacion
   end
 
   # POST /calificaciones
   # POST /calificaciones.json
   def create
     @calificacion = Calificacion.new(calificacion_params)
-    # authorize! :manage, Calificacion
+
     respond_to do |format|
       if @calificacion.save
-        format.html { redirect_to @calificacion, notice: 'Calificaciones was successfully created.' }
+        format.html { redirect_to @calificacion, notice: 'Calificacion was successfully created.' }
         format.json { render action: 'show', status: :created, location: @calificacion }
       else
         format.html { render action: 'new' }
@@ -48,7 +47,7 @@ class CalificacionesController < ApplicationController
   def update
     respond_to do |format|
       if @calificacion.update(calificacion_params)
-        format.html { redirect_to @calificacion, notice: 'Calificaciones was successfully updated.' }
+        format.html { redirect_to @calificacion, notice: 'Calificacion was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -75,6 +74,6 @@ class CalificacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def calificacion_params
-      params.require(:calificacion).permit(:calificacion_ordinaria, :calificacion_remedial, :calificacion_extraordinaria, :calificacion_final)
+      params.require(:calificacion).permit(:primer_parcial, :segundo_parcial, :tercer_parcial, :calificacion_final)
     end
 end
