@@ -15,7 +15,7 @@ class PrestamoLibrosController < ApplicationController
   # GET /prestamo_libros/1.json
   def show
   @dia = Date.today  - @prestamo_libro.fecha_prestamo
-  @cuota = @prestamo_libro.multa_dia * @dia
+  @cuota = @prestamo_libro.multa_dia * @dia.to_i
 
   end
 
