@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
-#Gema para realizar reportes en PDF
+
+
+gem 'rspec', '~> 2.14.1'
+#pdf#Gema para realizar reportes en PDF
 gem "prawnto_2", :require => "prawnto"
+#active-admin
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

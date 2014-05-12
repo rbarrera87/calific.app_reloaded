@@ -7,6 +7,10 @@
   %br/
   = f.label 'Nombre del libro:'
   = f.collection_select :libro_id, Libro.all, :id, :nombre
+  %br/
+  %br/
+  = f.input :fecha_prestamo
+ 
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), prestamo_libros_path, class: 'btn'
