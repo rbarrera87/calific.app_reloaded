@@ -8,11 +8,15 @@ class PrestamoLibrosController < ApplicationController
   # GET /prestamo_libros.json
   def index
     @prestamo_libros = PrestamoLibro.all
+    
   end
 
   # GET /prestamo_libros/1
   # GET /prestamo_libros/1.json
   def show
+  @dia = Date.today  - @prestamo_libro.fecha_prestamo
+  @cuota = @prestamo_libro.multa_dia * @dia.to_i
+
   end
 
   # GET /prestamo_libros/new
@@ -71,6 +75,6 @@ class PrestamoLibrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prestamo_libro_params
-      params.require(:prestamo_libro).permit(:multa_dia, :comentarios, :perfil_id, :libro_id)
+      params.require(:prestamo_libro).permit(:multa_dia, :fecha_prestamo, :fecha_entrga, :comentarios, :perfil_id, :libro_id)
     end
 end

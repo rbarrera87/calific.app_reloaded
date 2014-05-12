@@ -18,6 +18,10 @@
   %strong= model_class.human_attribute_name(:libro_id) + ':'
   %br
   = @prestamo_libro.libro.nombre
+%p
+  %strong= model_class.human_attribute_name(:Cuota) + ':'
+  %br
+  = @cuota
 
 .form-actions
   = link_to t('.back', default: t("helpers.links.back")), prestamo_libros_path, class: 'btn btn-default btn-sm active'
