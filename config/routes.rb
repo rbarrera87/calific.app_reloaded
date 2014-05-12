@@ -1,10 +1,13 @@
-CalificaMe::Application.routes.draw do
-
+CalificaMe::Application.routes.draw do  resources :empresas
+  resources :vinculaciones
+  resources :libros
+  resources :calificaciones
   resources :encuestas do
     member do
       get 'respuestas'
     end
   end
+
   devise_for :users
   resources :welcome
   resources :directores

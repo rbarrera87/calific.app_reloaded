@@ -1,0 +1,16 @@
+= simple_form_for @vinculacion, :html => { :class => 'form-horizontal' } do |f|
+  = f.label 'Carrera: '
+  = f.collection_select :carrera_id, Carrera.all, :id, :nombre
+  %br/
+  %br/
+  = f.label 'Perfil: '
+  = f.collection_select :perfil_id, Perfil.all, :id, :nombre
+  %br/
+  %br/
+  = f.input :nombre_proyecto
+  = f.input :nombre_director
+  = f.input :fecha_inicio
+  = f.input :fecha_fin
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), vinculaciones_path, :class => 'btn'

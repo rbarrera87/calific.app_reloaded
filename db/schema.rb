@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411165642) do
+ActiveRecord::Schema.define(version: 20140415180258) do
 
   create_table "asignaturas", force: true do |t|
     t.string   "nombre"
@@ -83,6 +83,19 @@ ActiveRecord::Schema.define(version: 20140411165642) do
   end
 
   add_index "docentes", ["perfil_id", "carrera_id"], name: "index_docentes_on_perfil_id_and_carrera_id", unique: true, using: :btree
+
+  create_table "empresas", force: true do |t|
+    t.string   "nombre"
+    t.string   "direcion"
+    t.integer  "numero"
+    t.integer  "telefono"
+    t.string   "razon_social"
+    t.string   "estado"
+    t.string   "municipio"
+    t.string   "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "encuestas", force: true do |t|
     t.string   "nombre"
@@ -227,5 +240,16 @@ ActiveRecord::Schema.define(version: 20140411165642) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vinculaciones", force: true do |t|
+    t.integer  "carrera_id"
+    t.integer  "perfil_id"
+    t.string   "nombre_proyecto"
+    t.string   "nombre_director"
+    t.date     "fecha_inicio"
+    t.date     "fecha_fin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
