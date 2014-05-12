@@ -101,9 +101,9 @@
 # text "Parcial:", align: :left
 
 
-y=@carreras.find(2)
- table([ ["Carrera: #{y.nombre}", "Profesor:", "Periodo"],
- ["Asignatura:", "Grado:", "Grupo:"],["Parcial:"]], :column_widths => [180, 200, 150], )
+# y=@carreras.find(2)
+#  table([ ["Carrera: #{y.nombre}", "Profesor:", "Periodo"],
+#  ["Asignatura:", "Grado:", "Grupo:"],["Parcial:"]], :column_widths => [180, 200, 150], )
 
 def box_content(string)
 text string

@@ -22,4 +22,4 @@
             = link_to t('.destroy', default: t("helpers.links.destroy")), carrera_path(carrera), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
 - if can? :manage, Carrera
   = link_to t('.new', default: t("helpers.links.new")), new_carrera_path, class: 'btn btn-primary'
-  = link_to "carta (PDF)", carreras_path(@carreras, format: "pdf"),  :class => 'btn btn-success'
+  = link_to "(PDF)", carreras_path(@carreras, format: "pdf"),  :class => 'btn btn-success'

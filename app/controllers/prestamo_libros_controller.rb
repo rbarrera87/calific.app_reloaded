@@ -8,7 +8,7 @@ class PrestamoLibrosController < ApplicationController
   # GET /prestamo_libros.json
   def index
     @prestamo_libros = PrestamoLibro.all
-    @total = @cuota
+    
   end
 
   # GET /prestamo_libros/1
