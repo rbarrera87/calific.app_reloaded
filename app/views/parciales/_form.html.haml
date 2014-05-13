@@ -1,0 +1,6 @@
+= simple_form_for @parcial, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :nombre
+  = f.input :cuatrimestre_id
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), parciales_path, :class => 'btn'

@@ -1,0 +1,23 @@
+- model_class = Parcial
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:nombre)
+      %th= model_class.human_attribute_name(:cuatrimestre_id)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @parciales.each do |parcial|
+      %tr
+        %td= link_to parcial.id, parcial_path(parcial)
+        %td= parcial.nombre
+        %td= parcial.cuatrimestre_id
+        %td= parcial.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_parcial_path(parcial), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), parcial_path(parcial), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_parcial_path, :class => 'btn btn-primary'

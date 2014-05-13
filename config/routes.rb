@@ -1,5 +1,9 @@
 CalificaMe::Application.routes.draw do
 
+  resources :cuatrimestres
+
+  resources :parciales
+
   resources :encuestas do
     member do
       get 'respuestas'

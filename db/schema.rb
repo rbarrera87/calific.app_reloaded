@@ -197,16 +197,6 @@ ActiveRecord::Schema.define(version: 20140511233228) do
   add_index "rel_asignatura_parciales", ["asignatura_id"], name: "index_rel_asignatura_parciales_on_asignatura_id", using: :btree
   add_index "rel_asignatura_parciales", ["parcial_id"], name: "index_rel_asignatura_parciales_on_parcial_id", using: :btree
 
-  create_table "rel_cuatrimestre_parciales", force: true do |t|
-    t.integer  "cuatrimestre_id"
-    t.integer  "parcial_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rel_cuatrimestre_parciales", ["cuatrimestre_id"], name: "index_rel_cuatrimestre_parciales_on_cuatrimestre_id", using: :btree
-  add_index "rel_cuatrimestre_parciales", ["parcial_id"], name: "index_rel_cuatrimestre_parciales_on_parcial_id", using: :btree
-
   create_table "rel_grado_grupos", force: true do |t|
     t.integer  "grado_id",   null: false
     t.integer  "grupo_id",   null: false
