@@ -1,3 +1,4 @@
 class Cuatrimestre < ActiveRecord::Base
-  has_many :parciales
+	self.table_name = "cuatrimestres"
+  has_many :parciales dependent: :destroy
 end
