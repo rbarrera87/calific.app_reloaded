@@ -71,6 +71,6 @@ class IndicadoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def indicador_params
-     params.require(:indicador).permit(:nombre, :descripcion, :estado)
+     params.require(:indicador).permit(:indicador_id, :nombre, :valor, :created_at, :updated_at)
     end
 end

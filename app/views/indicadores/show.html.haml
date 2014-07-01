@@ -1,23 +1,17 @@
 - model_class = Indicador
 .page-header
-  %h3.text-primary.text-center
-    =t '.title', default: [:'helpers.titles.show', 'show %{model}'], model: model_class.model_name.human.titleize
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
 %p
   %strong= model_class.human_attribute_name(:nombre) + ':'
   %br
   = @indicador.nombre
 %p
-  %strong= model_class.human_attribute_name(:descripción) + ':'
+  %strong= model_class.human_attribute_name(:valor) + ':'
   %br
-  = @indicador.descripcion
-%p
-  %strong= model_class.human_attribute_name(:estado) + ':'
-  %br
-  = @indicador.estado
+  = @indicador.valor
 
 .form-actions
-  = link_to t('.back', default: t("helpers.links.back")), indicadores_path, class: 'btn btn-default btn-sm active'
-  = link_to t('.edit', default:t("helpers.links.edit")), edit_indicador_path(@indicador), class: 'btn btn-success btn-sm active'
-  = link_to t('.destroy', default: t("helpers.links.destroy")), indicador_path(@indicador), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger btn-sm active'
-  = link_to t('.new', default: t("helpers.links.new")), new_indicador_path, class: 'btn btn-info btn-sm active'
-
+  = link_to t('.back', :default => t("helpers.links.back")), indicadores_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_indicador_path(@indicador), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), indicador_path(@indicador), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

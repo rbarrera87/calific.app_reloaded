@@ -1,8 +1,9 @@
 = simple_form_for @calificacion, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :calificacion_ordinaria
-  = f.input :calificacion_remedial
-  = f.input :calificacion_extraordinaria
-  = f.input :calificacion_final
+  = f.input :user_id
+  = f.input :parcial_id
+  = f.input :indicador_id
+  = f.input :asignatura_id
+  = f.input :valor
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), calificaciones_path, :class => 'btn'

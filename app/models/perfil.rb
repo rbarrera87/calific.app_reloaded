@@ -1,4 +1,4 @@
-class Perfil < ActiveRecord::Base
+kclass Perfil < ActiveRecord::Base
   self.table_name = "perfiles"
   belongs_to :user
   belongs_to :carrera

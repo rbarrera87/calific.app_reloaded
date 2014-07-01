@@ -4,22 +4,20 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:clave)
+      %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:nombre)
-      %th= model_class.human_attribute_name(:descripción)
-      %th= model_class.human_attribute_name(:estado)
-      - if can? :manage, Indicador
-        %th=t '.actions', :default => t("helpers.actions")
+      %th= model_class.human_attribute_name(:valor)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @indicadores.each do |indicador|
       %tr
         %td= link_to indicador.id, indicador_path(indicador)
         %td= indicador.nombre
-        %td= indicador.descripcion
-        %td= indicador.estado
-        - if can? :manage, Indicador
-          %td
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_indicador_path(indicador), :class => 'btn btn-mini'
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), indicador_path(indicador), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-- if can? :manage, Indicador
-  = link_to t('.new', :default => t("helpers.links.new")), new_indicador_path, :class => 'btn btn-primary'
+        %td= indicador.valor
+        %td= indicador.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_indicador_path(indicador), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), indicador_path(indicador), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+
+= link_to t('.new', :default => t("helpers.links.new")), new_indicador_path, :class => 'btn btn-primary'

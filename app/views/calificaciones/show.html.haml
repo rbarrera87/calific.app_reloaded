@@ -3,21 +3,25 @@
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:calificacion_ordinaria) + ':'
+  %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
-  = @calificacion.calificacion_ordinaria
+  = @calificacion.user_id
 %p
-  %strong= model_class.human_attribute_name(:calificacion_remedial) + ':'
+  %strong= model_class.human_attribute_name(:parcial_id) + ':'
   %br
-  = @calificacion.calificacion_remedial
+  = @calificacion.parcial_id
 %p
-  %strong= model_class.human_attribute_name(:calificacion_extraordinaria) + ':'
+  %strong= model_class.human_attribute_name(:indicador_id) + ':'
   %br
-  = @calificacion.calificacion_extraordinaria
+  = @calificacion.indicador_id
 %p
-  %strong= model_class.human_attribute_name(:calificacion_final) + ':'
+  %strong= model_class.human_attribute_name(:asignatura_id) + ':'
   %br
-  = @calificacion.calificacion_final
+  = @calificacion.asignatura_id
+%p
+  %strong= model_class.human_attribute_name(:valor) + ':'
+  %br
+  = @calificacion.valor
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), calificaciones_path, :class => 'btn'

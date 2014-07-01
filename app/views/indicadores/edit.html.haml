@@ -1,5 +1,4 @@
 - model_class = Indicador
 .page-header
-%h3.text-primary.text-center
-  =t '.title', default: [:'helpers.titles.edit', 'edit %{model}'], model: model_class.model_name.human.titleize
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
 = render :partial => "form"
